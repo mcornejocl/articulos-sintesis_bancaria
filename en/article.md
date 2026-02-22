@@ -1,0 +1,592 @@
+# The banking synthesis: anatomy of non-bank replication of financial intermediation structure
+
+## Abstract
+
+In a square in Florence, fourteenth century, a man sits behind a wooden plank. He exchanges coins between cities that mint their own, records debts in a ledger only he can read, safeguards gold for those who distrust their own walls. The piece of furniture is called *banco*. When the man fails, the community smashes his furniture in the square: *banca rotta*. From the punishment, a word was born; from the furniture, an industry. The plank became a marble building with Corinthian columns. The building multiplied into branches across five continents. The branches migrated to servers, the servers to the cloud. But in each metamorphosis, the operation preserved its core elements: receiving money from those who have it, delivering it to those who need it, and in that interval — where time creates uncertainty and uncertainty creates risk — charging for managing the uncertainty. Six hundred years. The question is what comes next.
+
+This article proposes an answer. What comes next is not another bank but a **compound**: the **banking synthesis**, a structure functionally equivalent to a bank built through the combination of regulated investment vehicles — mutual funds for deposit-taking, investment funds for lending, fintechs for transactional infrastructure — that together replicate financial intermediation without a banking license. It differs from unbundling and from unregulated intermediation in that it is a recomposition actively enabled by regulators who open payment systems, mandate financial data sharing, and create frameworks for new actors. @merton1995 articulated the logic underlying this phenomenon: financial functions are stable; the institutions that perform them are not. The three essential functions of a bank — liquidity transformation [@diamond1983], delegated monitoring [@diamond1984], and creation of informationally insensitive securities [@gorton1990] — require expertise, information, and regulation. This article argues they do not necessarily require a banking license.
+
+The scale is consistent with this reading. Non-bank intermediation already accounts for more than half of global financial assets and is growing at twice the rate of banking [@fsb2025b]. @philippon2015 documented that the cost of financial intermediation in the United States has not decreased in over a century. The banking synthesis, by introducing structural competition where functional concentration previously existed, has the potential to alter that dynamic.
+
+If the bank was an institutional solution developed to manage intertemporal risk, and if that solution can now be constructed differently — with analogous functions but a distinct institutional form — then the question that closes this article is not technical but one of identity: what do we call something that is no longer a bank but replicates the essential functions of a bank?
+
+**Keywords:** banking synthesis, non-bank financial intermediation, functional perspective, asset-liability management, financial competition, enabling regulation, financial inclusion
+
+---
+
+## 1. Time, risk, and the bank
+
+### 1.1 Political economy: agents and their territory
+
+Before finance comes economics. And before economics as abstraction comes **political economy**: the study of how the agents of a particular territory produce, exchange, and distribute wealth within an institutional framework that is a product of their own history [@smith1776]. There is no generic economy. There is the economy of a place, with its agents, its institutions, its rules, and its cultural heritage. @mill1848 framed it in similar terms: political economy studies the phenomena of society that arise from the joint operations of human beings for the production of wealth — but those human beings live in a concrete society, not in a theoretical vacuum. @north1990 argued that institutions — the formal and informal rules that structure human interaction — are path-dependent on the historical trajectory of each territory: what proves viable in one jurisdiction may not be so in another, because institutions reflect the cultural heritage that produced them.
+
+This territorial specificity constitutes, within the framework of this analysis, a central variable. @polanyi1944 argued that the economy does not exist as an autonomous system but is embedded in the social relations of each community — in its norms, its hierarchies, its expectations of reciprocity. @granovetter1985 formalized this intuition by showing that economic action, even in modern industrial societies, cannot be analyzed independently of the social structure in which it occurs. From this perspective, the market does not operate autonomously from society but is conditioned by it.
+
+Within this territorial and institutional framework, **monetary policy** fulfills two functions that define the perimeter of the financial system. The first is **price stability**: protecting the value of the currency by measuring its purchasing power against a representative basket of goods and services [@imf2020]. That basket is, in itself, a cultural construct — the weight of rice in Asia, bread in Europe, corn in Mesoamerica reflects the consumption patterns of each territory, not a universal measure. The second is **payment chain assurance**: ensuring that agents can transfer value among themselves safely, efficiently, and with finality [@cpmiiosco2012]. Payment, clearing, settlement, and recording systems are critical infrastructures whose design reflects the legal framework, market structure, and institutional heritage of each jurisdiction.
+
+Monetary policy thus operates on concrete agents in a concrete territory, with a currency whose value is measured against the goods those agents consume, and through a payment chain those agents use — a territory whose cultural heritage shapes the configuration of the financial system.
+
+It is within this framework — a territory, its agents, its currency, its payment chain — that the need to intermediate between the present and the future emerges. That need is the origin of finance.
+
+### 1.2 The four irreducible dimensions
+
+Finance emerges from the intersection of four primitive elements: the **economy** — the allocation of scarce resources among alternative uses —, **contract theory** — enforceable agreements between parties that define contingent rights and obligations [@hart1995] —, **time** — the dimension that creates the need to transfer value between the present and the future — and **risk** — uncertainty about future states of the world. These four dimensions are irreducible. Eliminating any one of them eliminates the very need for finance.
+
+Risk is the offspring of time — not of mere chronological passage, but of the existence of an uncertain future. @knight1921 formalized the distinction between risk — quantifiable uncertainty — and pure uncertainty — future states we cannot even model — but both require time to exist. Without an interval between a decision and its outcome, there is nothing to manage. A loan is risky because between disbursement and repayment, time passes — and in that interval, the debtor may fail, the rate may rise, the currency may devalue. If the cycle were instantaneous, there would be no risk. No finance. No banks.
+
+But if finance exists because time creates risk, every financial operation needs to be *recorded*. A deposit is a record that says "this person has the right to withdraw X." A loan is a record that says "this person must pay Y within term Z." A bond, a share, a derivative, an insurance policy: all are **value-bearing records** housed in a database — be it a fifteenth-century ledger, a twentieth-century mainframe, or a twenty-first-century distributed ledger. @kocherlakota1998 showed, within a formal model, that money can be interpreted as equivalent to a recording technology — encoded social memory. This article extends that logic and proposes that every financial asset is a value-bearing record, and the quality of the recording technology — its security, its immutability, its accessibility — is a relevant variable of financial development. The history of finance is not only the history of intermediation between the present and an uncertain future. It is, simultaneously, the history of the progressive improvement of the technology that records that intermediation.
+
+### 1.3 From bank to bank
+
+The word "bank" is a linguistic fossil. It comes from the Italian *banco* — the wooden furniture where Lombard money changers operated in the squares of Florence, Genoa, and Venice in the fourteenth century [@deroover1963]. The business was simple: exchanging coins from different city-states, managing bills of exchange, keeping accounts. When a money changer could not honor his commitments, the community would smash his furniture in public. *Banca rotta*. Bankruptcy. The name of the punishment outlived the punishment itself.
+
+But the furniture was more than it appeared. On that wooden plank, the operations that financial theory would formalize centuries later were being executed: transfer of value across locations (payments), temporary custody of resources (deposit-taking), financing against a promise of repayment (credit). The difference was primarily one of scale and sophistication, though the core operations shared common elements.
+
+The conceptual leap occurred when English goldsmiths of the seventeenth century discovered that not all depositors withdrew their gold at the same time. If a hundred people deposited one coin each, the goldsmith could lend eighty and keep twenty in reserve — with a high probability of being able to honor withdrawals. Fractional reserve banking was born: creating credit with other people's money, trusting the law of large numbers. The risk was evident — if too many withdraw at once, the system collapses — but the economic incentive was considerable.
+
+The Bank of Amsterdam (1609) institutionalized trust [@quinn2007]. Instead of relying on the individual reputation of each money changer, a public bank backed by the city guaranteed that a deposited florin could be withdrawn in full. The central innovation was institutional: trust began to shift from the person to the system. The Bank of England (1694) completed the architecture by inventing the safety net: a lender of last resort that, as @bagehot1873 would theorize, should lend freely in times of panic, at high rates, against good collateral. With this, the existential risk of fractional reserve banking — the bank run — had an institutional antidote.
+
+The sequence matters: commercial banks were not born because a central bank delegated functions to them. They were born first — centuries before — because the economy needed intermediation and no public institution provided it. Central banks arose later, as an institutional response to the instabilities that private banking generated [@goodhart1988]. The Swedish Riksbank (1668) was born from the collapse of a commercial bank. The Bank of England was born when private bankers refused to finance the sovereign. The Federal Reserve (1913) was born from recurrent banking panics. The relationship is not one of delegation but of evolution: first the private function, then public oversight.
+
+The modern commercial bank, as it crystallized in the nineteenth century and was perfected in the twentieth, was the vertical integration of all these functions under one roof and one license: deposit-taking, credit origination, management of the matching between the two, payment processing, securities custody, insurance distribution. A vertically integrated structure.
+
+Six hundred years. The furniture became a marble building, the ledger became a mainframe, the square became a digital network. But the core function remained: intermediating between those who have resources and those who need them, managing time and risk along the way. The name did not change either. We still call it a bank.
+
+### 1.4 The question
+
+If a bank is, in essence, a financial intermediation machine — it takes money from those who have it and delivers it to those who need it, charging the difference — and if all other functions are services built around this core operation, then the question is direct: do these contracts need to be executed within an institution called a "bank"? Or is the banking license an institutional arrangement that, having worked for centuries, may not be the only way to organize financial intermediation?
+
+Banking as an institution has shown considerable stability over time. From the Florentine bankers of the Renaissance to the global banks of the twenty-first century, the fundamental structure — taking deposits, originating credit, managing the matching between the two — has preserved common core elements. Scale changed, technology changed, regulation changed.
+
+In recent decades, technical, regulatory, and market conditions have converged that allow this essential function to be replicated outside the institutional structure of the bank. As a structured and regulated alternative whose comparative efficiency is an open empirical question.
+
+---
+
+## 2. The banking synthesis thesis
+
+### 2.1 Theoretical foundation: the functional perspective
+
+From the functional perspective, basic financial functions precede the institutional forms that organize them. Transferring value existed before the first bank. Lending existed before the first license. Robert Merton formalized this observation in what this article identifies as one of the main theoretical antecedents of the banking synthesis: financial **functions** are stable over time and across countries; the **institutions** that perform them change continuously [@merton1995; @mertonbodie2005]. The six basic functions — payment system, savings mobilization, resource allocation, risk management, price information provision, and resolution of incentive problems — do not depend on any particular institutional form. What matters for economic development is that these functions are fulfilled efficiently, not who fulfills them [@king1993; @levine1997].
+
+From this perspective, the relevant question is not whether banks can be replaced — that would frame the problem in institutional terms — but whether the functions they currently perform can be executed through other organizational forms, and with what degree of comparative efficiency.
+
+### 2.2 Definition
+
+The **banking synthesis** is the construction of a structure functionally equivalent to a bank through the combination of regulated investment vehicles that, together, replicate financial intermediation — without a banking license.
+
+The term is deliberate. In chemistry, a synthesis combines simple elements to create a complex compound. Here, the elements are mutual funds[^moneymarket] (deposit-taking), investment funds[^fundinv] (lending), payment fintechs (transactional infrastructure), and investment platforms (services). The compound is a structure that, viewed as a whole, is functionally indistinguishable from a bank.
+
+The banking synthesis does not occur outside the regulatory system. On the contrary: it is **actively enabled by regulators** who open payment systems to non-bank actors (Bank of England since 2017, ECB with TARGET2, Reserve Bank of Australia since 2024), who mandate financial data sharing (the Second Payment Services Directive (PSD2) in Europe, open finance in Brazil and Australia), and who create specific regulatory frameworks for new actors (payment licensing frameworks in Singapore, the United Kingdom, and the European Union; fintech laws in Latin America). The banking synthesis is an evolution of the financial system that occurs **within** the regulatory perimeter, not outside it.
+
+### 2.3 Conceptual distinctions
+
+The banking synthesis is not what it appears at first glance. It is worth distinguishing it from two concepts with which it is easily confused:
+
+**From unbundling/rebundling**: The fintech literature has described how startups first fragmented banking services (unbundling) and then recombined them into more comprehensive digital packages (rebundling). But this process operates on the **service layer** and continues to depend on the underlying banking infrastructure. A payment fintech that uses a bank's current account on the back end has not synthesized anything; it has improved the interface.
+
+**From non-bank financial intermediation**: Regulators — particularly the Financial Stability Board (FSB) and the International Monetary Fund (IMF) — have extensively documented non-bank financial intermediation (NBFI). This perspective focuses on **systemic risk**: how much intermediation occurs outside the banking regulatory perimeter and how much risk it generates [@pozsar2013; @claessens2012]. The banking synthesis shares the empirical observation — intermediation is migrating — but proposes a different reading: not only as a phenomenon that generates systemic risks, but also as a potential **structural transformation** of the financial system driven by technology, enabling regulation, and competition, whose implications for efficiency, transparency, and financial inclusion depend on regulatory design and require empirical assessment.
+
+### 2.4 Theoretical antecedents
+
+The banking synthesis does not emerge in a vacuum. Four intellectual currents converge in its foundation.
+
+Why do banks exist? @diamond1983 proposed a formal answer: they mitigate a liquidity problem by transforming illiquid assets into liquid liabilities (demand deposits). @diamond1984 added that banks exist because they address the delegated monitoring problem: under the model's assumptions, it is more efficient for an intermediary to monitor the borrower on behalf of multiple depositors than for each depositor to do so individually. @gorton1990 completed the picture by showing that banks create informationally insensitive securities[^infoinsen] — deposits whose value does not fluctuate with the quality of the underlying assets — generating trust and liquidity. These three functions — liquidity transformation, delegated monitoring, and creation of informationally insensitive securities — constitute, according to this literature, the core economic functions of a bank. The question that follows from this analysis is: can these functions be performed outside a bank? Money market mutual funds create securities that share characteristics of informational insensitivity (stable-value shares). Private debt investment funds perform functions comparable to delegated monitoring of borrowers. And the term design of funds manages liquidity transformation without the extreme mismatch of traditional banking.
+
+@corrigan1982, in his essay "Are Banks Special?"[^corrigan], defined three characteristics that make banks unique: access to the payment system, deposit insurance, and a role in the transmission of monetary policy. It can be argued that these three characteristics are, to a large extent, regulatory concessions rather than intrinsic properties of financial intermediation. When regulators open the payment system to non-banks (as is occurring globally), the first characteristic ceases to be exclusive. The banking synthesis is, in part, the gradual reduction of some of the exclusive characteristics of banking identified by Corrigan.
+
+If banks exist for economically well-founded reasons, why would they change? The transformation of the financial system is part of the **creative destruction** dynamic described by @schumpeter1942: new actors introduce new products, new methods, and new organizational forms that partially render prior forms obsolete, while preserving and improving the underlying economic functions. @king1993 found empirical evidence consistent with the proposition that what matters for economic development is that financial functions are executed efficiently, not the institutional form that executes them. From this perspective, the banking synthesis can be interpreted as an outcome consistent with technological innovation applied to an industry whose unit cost of intermediation has remained relatively stable for over a century [@philippon2015].
+
+There is one mechanism the synthesis cannot replicate — at least not directly. The Bank of England published an article, "Money creation in the modern economy"[^boe], that challenged a widespread misconception: banks do not lend money they already have; they create new money every time they extend credit [@mcleay2014]. This mechanism — "loans create deposits" — is exclusive to banks. When intermediation migrates to investment funds, this money creation mechanism is interrupted. The monetary implications of this interruption are one of the central open questions raised by the banking synthesis. @mcmillan2014, in *The End of Banking*, argued that the digital revolution had rendered the banking model obsolete. His proposal to eliminate money creation by banks was considered extreme, but his diagnosis anticipated several of the trends subsequently documented: financial intermediation was migrating off the bank balance sheet.
+
+The available data are consistent with the theoretical framework described. The FSB has monitored non-bank financial intermediation since 2011. Its most recent report [@fsb2025a] documents that the sector already exceeds half of global financial assets and is growing at twice the speed of the banking sector. The narrow measure — entities that perform credit intermediation — shows an even greater acceleration [@fsb2025b].
+
+The Bank for International Settlements (BIS), in a study on the global drivers of private credit [@bis2025], identified that this market is growing driven by both supply factors (yield-seeking by institutional investors) and demand factors (mid-sized firms with limited access to bank credit or the public bond market). @buchak2018 documented empirically that this growth is not merely cyclical: post-crisis banking regulation (Basel III) created a permanent structural incentive for credit intermediation to migrate to non-bank actors.
+
+The BIS, in its vision for the future of the monetary system [@bis2023], explicitly proposed a framework where non-bank intermediaries have a permanent and legitimate role alongside central banks and commercial banks — which is consistent with the idea that non-bank intermediation could constitute a permanent component of the financial system.
+
+Non-bank intermediation, financial technology, regulatory changes, shifts in consumer behavior: the literature has studied them separately. This article proposes an **integrative framework** that aspires to explain not only what is occurring, but where these trends might converge.
+
+---
+
+## 3. Anatomy of a bank
+
+To synthesize a bank, one must first open it. And what one finds inside is organized in three operational layers, a technological layer that transforms them, and a safety net that envelops them all.
+
+The first layer is the **financial market infrastructure**: the payment, settlement, custody, and recording systems that make financial operations possible. The second is **asset-liability management**: the discipline that orchestrates the matching between what the bank takes in and what it lends out, managing the risk premia inherent in intermediation. The third is the **financial products and services layer**: the contracts the bank offers — deposit-taking, lending, derivatives, information — whose sophistication depends on the infrastructure's capabilities, the balance sheet structure, and the prevailing regulation. The infrastructure enables. Asset-liability management orchestrates. Products instrument.
+
+Beneath these three layers operates an **emerging technological layer** — distributed ledgers, smart contracts, tokenization — that is not a market infrastructure in itself, but the technology that is transforming how all the others function. And above them all operates the **financial safety net** — state deposit guarantee, lender of last resort, prudential regulation — that is exclusive to banking and constitutes one of its main structural advantages: simultaneously an implicit subsidy (depositors accept lower rates because their money is "safe") and a cost (prudential regulation imposes capital, liquidity, and corporate governance requirements that raise operating costs).
+
+The three layers share a property that the previous section anticipated: every financial operation is a value-bearing record. The infrastructure exists to create, store, and transfer those records securely. Asset-liability management orchestrates the temporal matching between records of different natures. And products define the content of each record — who has a right to what, under what conditions, at what terms. The history of financial infrastructure is the history of the progressive improvement of that recording technology: from Pacioli's double entry (1494) to central securities depositories, from mainframes to programmable distributed ledgers. Each leap transformed the security, immutability, and accessibility properties of records — and each change enabled the creation of new types of instruments and financial operations. The banking synthesis is possible today in a form that it was not thirty years ago because recording technology has evolved to a point where, in principle, it allows the distribution of intermediation functions among multiple actors, although the preservation of coherence, security, and traceability requires additional empirical validation.
+
+A bank is the vertical integration of these three layers within a single regulated entity. @kashyap2002 argued that this integration is not accidental: there exists a natural synergy between deposit-taking and credit origination, because both activities require maintaining liquidity reserves and contingent credit commitments can be funded with stable deposits. This constitutes a central theoretical objection to the banking synthesis, and this article addresses it directly: if the synergy exists, can specialization and competition compensate for its loss?
+
+### 3.1 Financial market infrastructure
+
+Banks operate within — and depend critically on — the financial market infrastructures (FMIs) defined by the BIS Committee on Payments and Market Infrastructures and the International Organization of Securities Commissions (IOSCO) in their *Principles for Financial Market Infrastructures* [@cpmiiosco2012]. These infrastructures are classified into five categories:
+
+#### 3.1.1 Payment systems
+
+Payment systems transfer funds between participants. They subdivide into large-value systems — real-time gross settlement (RTGS) systems, operated by central banks, which settle each interbank transaction individually and immediately — and retail systems — clearing houses, card networks, and electronic transfer systems that process the massive volume of everyday transactions. Access to large-value systems has historically been exclusive to banks, constituting an important barrier to entry in financial intermediation.
+
+#### 3.1.2 Central securities depositories (CSDs)
+
+CSDs provide securities accounts, centralized custody, and ownership registration services for financial instruments. They are the infrastructure that allows bonds, shares, and other securities to exist in dematerialized form and to be transferred electronically. Banks interact with CSDs both as custodians of their clients' securities and in managing their own investment portfolios.
+
+#### 3.1.3 Securities settlement systems
+
+These systems allow securities transfers to be executed and settled according to predefined multilateral rules, typically under the delivery-versus-payment (DvP) principle: the security is transferred simultaneously with the payment, eliminating the risk that one party fulfills its obligation while the other does not. Banks depend on these systems to settle their capital market operations.
+
+#### 3.1.4 Central counterparties (CCPs)
+
+CCPs interpose themselves between the counterparties of a financial transaction, becoming the buyer to every seller and the seller to every buyer. They manage counterparty credit risk through margins, guarantee funds, and default management procedures. Their role is especially relevant in derivatives markets, where banks are active participants.
+
+#### 3.1.5 Trade repositories (TRs)
+
+TRs maintain centralized electronic records of transaction data, particularly in over-the-counter (OTC) derivatives markets. Following the 2008 crisis, G-20 regulators mandated obligatory reporting to TRs to increase transparency and enable systemic risk supervision.
+
+### 3.2 The emerging technological layer
+
+The five infrastructures described above — payment systems, depositories, settlement systems, central counterparties, and trade repositories — constitute the plumbing of the financial system as it exists today. But beneath that plumbing, a technological layer is emerging that could transform it. The BIS has extensively analyzed the role of crypto-assets and distributed ledger technology (DLT), differentiating three phenomena with very different implications [@bis2022; @bis2023]:
+
+**Unbacked crypto-assets** (such as decentralized cryptocurrencies): The BIS [@bis2022] concluded that they present structural deficiencies as a medium of payment and store of value — high volatility, limited scalability, elevated energy consumption, and absence of a nominal anchor — and therefore do not constitute a viable basis for the monetary system. Their role in the banking synthesis is marginal.
+
+**Stablecoins**[^stablecoins]: They attempt to import the credibility of fiat currencies by pegging their value to reserve assets (typically bank deposits or short-term sovereign bonds). The BIS considers them a partial and inherently fragile solution: they depend on trust in the issuer and in the quality of reserves, and have experienced de-pegging episodes that confirm their vulnerability. However, their use as a settlement mechanism on digital asset platforms is growing.
+
+**Tokenization of real-world assets**: This is where the BIS identifies significant transformative potential. Tokenization — representing traditional financial assets (bonds, deposits, fund shares) as digital tokens on programmable ledgers — enables composability (combining multiple operations into a single atomic transaction), simultaneous settlement, and programmability through smart contracts. The BIS [@bis2023] proposed the concept of a **unified ledger**: a shared programmable infrastructure where tokenized deposits, central bank digital currency (CBDC), and tokenized assets coexist, under the governance of central banks. This vision does not replace existing FMIs but complements them, adding a layer of programmability and efficiency.
+
+For the banking synthesis, tokenization is relevant because it could reduce frictions between the components of the synthesis: a tokenized mutual fund could settle instantly against a tokenized loan, without depending on the multiple layers of intermediation that traditional FMIs currently require. It could constitute a suitable infrastructure for a financial system where intermediation is distributed among multiple specialized actors.
+
+### 3.3 Asset-liability management structure
+
+Asset-liability management (ALM) operates on the infrastructure described above and determines — together with it — the bank's capabilities for structuring, intermediating, and distributing financial products. It manages the matching between what a bank takes in (its liabilities) and what it lends out (its assets), optimizing profitability and controlling the risks inherent in that matching. It functions as a core component of bank operations.
+
+What does it manage, exactly? Section 1 argued that risk is the offspring of time. Here the proposition becomes more precise: in a single-currency economy, every interest rate decomposes into a risk-free rate plus four premia that compensate for specific sources of uncertainty — **inflation** (the erosion of purchasing power between today and maturity), **credit** (the probability that the borrower will not pay), **liquidity** (the cost of converting the asset into cash before maturity), and **term** (exposure to rate movements during the life of the instrument)[^riskpremia]. In an open economy with multiple currencies, the **currency** premium is added — uncertainty about the relative value of currencies between the moment of investment and the moment of collection. Financial derivatives exist precisely to transfer, isolate, and redistribute these premia among participants with different risk appetites.
+
+The bank lives at the intersection of all these premia. It takes in at low rates (deposits with minimal credit premium, short term, high liquidity), lends at high rates (loans with elevated credit premium, long term, low liquidity), and captures the spread between both sides. Asset-liability management consists of simultaneously managing the five premia — or six, if operating in multiple currencies — without any of them destroying the bank's solvency.
+
+#### 3.3.1 The liability side: funding
+
+Every bank starts with a fundamental question: where does the money come from? Its funding sources, ordered from lowest to highest risk for the institution, reveal a hierarchy of dependencies:
+
+**Standing lending facility (SLF) and intraday liquidity facility (ILF)**: The funding source with the lowest risk premium. The SLF allows banks to obtain overnight liquidity from the central bank, presenting eligible collateral, at a known rate (typically the policy rate plus a spread). The ILF provides same-day liquidity to cover transient mismatches in the payment system, at no interest cost as long as it is returned before close. Both facilities are exclusive to entities with banking licenses and constitute an important structural advantage: access to the lender of last resort.
+
+**Interbank lines**: Very short-term funding (overnight or a few days) between banks. It allows managing punctual liquidity needs beyond central bank facilities. Its rate directly reflects the monetary policy rate and system liquidity conditions.
+
+**Demand deposits**: The lowest-cost funding source under normal conditions. The client deposits money that can be withdrawn at any time; the bank pays little or no interest. In practice, there exists a relatively stable core of demand deposits — not everyone withdraws at the same time — which allows funding longer-term assets. The risk is volatility: under stress conditions, withdrawals can accelerate.
+
+**Term deposits**: Higher-cost but more predictable funding. The client commits to keeping the money for a period (30, 90, 180, 360 days) in exchange for an interest rate. The bank obtains term certainty, allowing it to better match its loans. It is the "structural" funding source of banking.
+
+**Debt issuance (bonds and covered bonds)**: Debt instruments issued by the bank and traded in capital markets. Covered bonds fund mortgage loans with long terms (up to 30 years); bank bonds raise medium- and long-term funding (2, 5, 10 years or more). Their funding cost exceeds that of deposits, but they offer term matching with long-duration assets. Their risk lies in dependence on market conditions for placement and rollover.
+
+**Capital and reserves**: This is not funding in the strict sense — it is not borrowed or repaid — but the permanent cushion that absorbs losses. Capital requirements (Basel III/IV) establish how much capital a bank must maintain in proportion to its risk-weighted assets. It is the highest-risk resource for the shareholder: if the bank's losses exceed reserves, capital is directly eroded.
+
+#### 3.3.2 The asset side: lending
+
+If the liability side answers "where does the money come from?", the asset side answers "where does it go?" A bank's assets are ordered from lowest to highest risk:
+
+**Standing deposit facility (SDF)**: The asset with the lowest risk premium on the balance sheet. Banks deposit excess liquidity at the central bank overnight, at a known rate (typically the policy rate minus a spread). It is pure sovereign risk with immediate liquidity. It is used when the bank has more liquidity than it can efficiently deploy.
+
+**Risk-free securities**: This comprises three subcategories: (i) **reserve requirements**, the mandatory fraction of deposits the bank must hold as reserves at the central bank — it does not generate significant returns but is a regulatory requirement; (ii) **central bank instruments**, such as bonds and notes issued by the monetary authority; and (iii) **sovereign bonds**, issued by the government. All share the characteristic of nil or minimal credit risk and high liquidity. These are the assets the bank maintains to meet regulatory liquidity requirements (LCR) and as a buffer against stress scenarios.
+
+**Bank and corporate bonds**: Bonds and commercial paper issued by other banks and by corporations. They offer higher returns than sovereign issuances but introduce issuer credit risk and lower liquidity. They are used to diversify the investment portfolio and optimize the yield of the liquidity book.
+
+**Securitized loans**: Loans (mortgage, auto, commercial) that have been packaged into securitization vehicles and are held on the bank's balance sheet as investments. They offer diversification and, in senior tranches, a moderate risk profile backed by real collateral. Their main risk lies in the valuation of underlying assets and secondary market liquidity.
+
+**Consumer credit**: Personal loans, credit card financing, revolving credit lines, auto loans. This is the highest-risk category: high margin (elevated interest rates) but without real collateral in most cases (except auto). Short to medium terms (6 months to 7 years). It is where the bank's greatest profitability concentrates, but also where the largest credit losses materialize.
+
+#### 3.3.3 Matching management: term and liquidity transformation
+
+Behind matching management lies a model that integrates all participants in a bank and extracts their behavior in aggregate. The principle is analogous to that of statistical mechanics: predicting the trajectory of an individual atom is impossible, but predicting the macroscopic properties of a gas — pressure, temperature — from the statistical behavior of millions of atoms is possible and reliable. In banking, predicting whether a single depositor will withdraw their money tomorrow is impossible, but predicting how millions of depositors will behave in aggregate is statistically tractable. From that predictability of the aggregate arises the very possibility of fractional reserve banking: the seventeenth-century goldsmith empirically discovered what the law of large numbers [@bernoulli1713] would later formalize. @diamond1983 modeled precisely this mechanism: individual liquidity needs are random, but the bank can predict — and serve — the aggregate.
+
+That statistical predictability enables one of the core — and riskiest — functions of a bank: **term transformation**. Taking short-term liabilities (deposits that can be withdrawn tomorrow) and converting them into long-term assets (30-year mortgages). This transformation can generate economic benefits — it allows long-term loans to exist that no individual depositor would be willing to fund directly — at the cost of the fragility analyzed below.
+
+But the model has a breaking point. When panic correlates individual decisions — everyone wants to withdraw at the same time — the aggregate ceases to behave as an aggregate and behaves as a single individual. Correlations jump to one. Statistical predictability collapses. This is a **bank run** — the existential risk that has defined the history of banking since its origins. @goldstein2005 formalized this dynamic: when the perceived quality of assets falls below a threshold, the individually rational decision to withdraw becomes the rational decision of everyone simultaneously, and the equilibrium collapses discontinuously.
+
+To manage this risk, the bank uses:
+- **Term matching**: Aligning asset and liability maturities as closely as possible.
+- **Liquidity reserves**: Maintaining highly liquid assets (sovereign bonds, reserves) that can be sold quickly.
+- **Interbank access**: Obtaining emergency funding from other banks.
+- **Central bank window**: The last resort.
+- **Hedging instruments**: Financial derivatives (interest rate swaps, futures contracts) to mitigate rate and currency risks.
+
+Basel regulation formalizes these requirements with indicators such as the liquidity coverage ratio (LCR) and the net stable funding ratio (NSFR) [@bcbs2010], which oblige banks to maintain minimum cushions of liquidity and stable funding.
+
+### 3.4 The financial products and services layer
+
+What a client sees when they enter a bank — or open its app — is neither the infrastructure nor the balance sheet structure. They see products: a checking account, a mortgage, car insurance. These products, built on the infrastructure and the asset-liability management structure, are classified into four fundamental categories:
+
+#### 3.4.1 Deposit products
+
+Deposit products are the interface between the bank and its retail and institutional funding sources:
+- **Checking and demand accounts**: Day-to-day transactional relationship; the client deposits, withdraws, and pays.
+- **Term deposits and savings accounts**: Remunerated savings products with varying degrees of liquidity and yield.
+- **Proprietary mutual funds**: Managed by the bank's asset management company, they channel savings into market instruments.
+
+#### 3.4.2 Lending products
+
+Lending products are the interface between the bank and its borrowers:
+- **Consumer credit**: Personal loans, credit cards, revolving lines.
+- **Collateralized credit**: Mortgage, auto, and pledge-backed loans.
+- **Commercial and corporate credit**: Working capital lines, project finance, syndicated loans.
+- **Guarantees and sureties**: Contingent commitments where the bank assumes credit risk without immediate disbursement.
+
+#### 3.4.3 Information products
+
+The bank accumulates and processes financial information, which generates a competitive advantage and a product line in itself:
+- **Credit history**: Record of client financial behavior, used both internally (risk assessment) and externally (certifications for third parties).
+- **Financial certifications**: Income statements, debt certificates, audited account statements.
+- **Securities custody**: Safekeeping and administration of financial instruments on behalf of clients.
+- **Financial advisory**: Private banking, wealth management, tax planning.
+
+#### 3.4.4 Derivative products
+
+Financial derivatives allow the transfer and management of specific risks. They are classified into four fundamental instruments:
+- **Futures**: Standardized, exchange-traded contracts that obligate the purchase or sale of an asset at a predetermined price and date. Used for hedging commodities, rates, and currencies.
+- **Forwards**: Bespoke over-the-counter contracts with the same logic as futures but without standardization or a clearing house. The foreign exchange forward is one of the most widely used products by exporting and importing firms.
+- **Swaps**: Exchanges of financial flows between two parties. The interest rate swap (exchanging a fixed rate for a floating rate) is the most traded derivative in the world by notional volume. Currency swaps allow managing long-term foreign exchange exposures.
+- **Options**: Contracts that grant the **right, but not the obligation**, to buy (call option) or sell (put option) an asset at a specified price. In exchange for this right, the buyer pays a premium to the seller. Options are, conceptually, the most general financial instrument: an insurance policy is economically equivalent to a put option — the insured pays a periodic premium and, if the adverse event occurs (the "underlying" crosses the "strike price"), receives a payout. Life, home, auto, and unemployment insurance that banks distribute through alliances with insurers are, in their economic structure, options on contingent events.
+
+#### 3.4.5 The universality of tokenization
+
+The four types of products described — deposit, lending, information, and derivatives — share a fundamental property: all are financial contracts and, as such, all are susceptible to tokenization. Representing a financial contract as a digital token on a programmable ledger does not alter its economic nature, but transforms its operations: it enables automatic execution through smart contracts, composability (combining multiple contracts into a single atomic transaction), instant settlement, and arbitrary divisibility.
+
+A tokenized deposit remains an obligation of the issuer to the depositor. A tokenized loan remains a debt contract with a payment schedule and interest. A tokenized futures contract still obliges the parties to exchange an asset at a predetermined price and date. A tokenized option — including insurance, which as established is economically an option — still grants a contingent right in exchange for a premium. What changes is the execution infrastructure: from manual processing and multi-day settlement cycles to potentially programmatic execution and accelerated settlement.
+
+This universality has a direct implication for the banking synthesis: if every financial product can be represented as a programmable token, then the synthesis could execute banking functions on a digital infrastructure, where the components — tokenized deposit funds, tokenized loans, tokenized derivatives — could interoperate directly, reducing the layers of intermediation that currently characterize the prevailing financial system [@bis2023]. This article argues that tokenization is not an additional feature of the synthesis, but the infrastructure that could make it viable at scale.
+
+---
+
+## 4. The map of the synthesis: function by function
+
+The previous section opened the bank. This one examines how different non-bank actors replicate specific banking functions.
+
+### 4.1 Synthesis of liabilities (funding)
+
+#### 4.1.1 Mutual funds as a substitute for deposits
+
+Money market mutual funds globally accumulate a volume equivalent to a significant fraction of total banking system deposits[^icidata] [^europeammf]. They represent an alternative funding source whose volume has reached proportions that some regulators consider systemically relevant.
+
+What are these funds? An instrument that shares several functional characteristics with bank deposits. They invest in short-term, high-quality debt instruments (short-term sovereign bonds, commercial paper, interbank deposits) and tend to offer investors a higher return than a bank savings account, with redemption liquidity typically within one business day. Participation is split between institutional and individual investors, suggesting the phenomenon is not limited to a single segment.
+
+But there is a fundamental difference from a bank deposit: the mutual fund **is not a liability of the manager**. It is an autonomous pool managed by a fund manager. If the manager fails, the fund's assets are not affected (they are segregated). But if the fund's assets lose value, the investor loses — there is no state guarantee.
+
+A frequently cited precedent is the collapse of the Reserve Primary Fund in September 2008, which "broke the buck"[^breakthebuck] — its net asset value fell below par for the first time in history — due to its exposure to Lehman Brothers commercial paper. This episode triggered a massive run on money market mutual funds and led the Federal Reserve to intervene with temporary guarantees. This episode illustrates that mutual funds, despite their perceived low-risk profile, do not have state deposit insurance.
+
+#### 4.1.2 Remunerated fintech accounts
+
+A more recent phenomenon is the emergence of remunerated accounts offered by fintechs that, in practice, function as deposits but are technically investments in funds.
+
+The mechanism is subtle but important: the user deposits money in their fintech account. That money, with user consent, is automatically invested in a money market or short-term fixed income mutual fund managed by an allied asset management company. The user sees a balance that grows daily, can spend that balance with a card or transfer it, and perceives the experience as that of a remunerated bank account. But legally, they own shares of a mutual fund.
+
+This model has been replicated in Latin America, Europe, and the United States through digital wallets and neobanks that offer remunerated accounts backed by funds. Adoption has grown across multiple jurisdictions.
+
+These products raise open regulatory questions: are they deposits or investments? Should they be regulated as banking services or as fund distribution? Should they be included in monetary aggregates? These questions do not yet have uniform answers globally.
+
+#### 4.1.3 Direct debt issuance by non-bank actors
+
+Some fintechs have taken an additional step: issuing debt directly in capital markets to finance their credit operations. Neobanks in Latin America and lending platforms in the United States have issued corporate bonds to fund their portfolios, moving from dependence on third-party funding to building their own liability structures — though several of them ultimately obtained banking licenses to access deposits as a stable funding source.
+
+### 4.2 Synthesis of assets (lending)
+
+#### 4.2.1 Investment funds as a substitute for bank credit
+
+These funds perform an **economically comparable function** to bank credit: they assess borrower risk, provide financing, collect interest, and manage collections. The difference is that they do so off a bank's balance sheet, without creating new money, and without Basel capital requirements.
+
+The scale of the phenomenon is consistent with this observation. The global private credit market has grown steadily, with a notable acceleration in capital deployment in recent years [@aima2025]. North America leads, followed by Europe. The funds raise capital from institutional investors (pension funds, insurers, family offices, funds of funds) and deploy it as credit to mid-sized firms with limited access to bank credit or the public bond market. Corporate credit accounts for the largest share of investments, with a predominance of senior debt.
+
+Default rates remain consistent with the historical experience for portfolios of similar credit quality [@generali2025]. The secondary market for private debt is also expanding, doubling its volume between 2024 and 2025[^secondarymarket], indicating a progressive maturation of the ecosystem.
+
+#### 4.2.2 Direct lending platforms
+
+Peer-to-peer lending platforms — where individuals lend directly to other individuals through a digital platform — represented the first massive attempt to disintermediate bank credit.
+
+However, experience demonstrated the limitations of the pure model. Major platforms abandoned their peer-to-peer models and shifted to institutional capital sources. Some opted to acquire small banks to access deposits as a stable funding source.
+
+The experience suggests that **stable funding is a determining factor**. Platforms that attempted to synthesize only the asset side (credit), without solving the liability side (stable funding), ended up returning to the banking structure. A complete banking synthesis requires solving both sides of the equation.
+
+An alternative model with greater commercial traction is buy now, pay later (BNPL): consumer credit embedded directly at the point of sale, without a formal application, without a credit card, financed by the e-commerce platform itself or by specialized investment funds. Multiple global platforms have adopted this model in Europe, the United States, and Latin America. The experience suggests that low-ticket consumer credit can be originated and managed outside a bank under competitive conditions.
+
+#### 4.2.3 Securitization as a bridge between funding and lending
+
+Securitization — the process of converting loans into tradable securities — is the mechanism that allows the complete separation of the loan originator from whoever funds it. An originator (bank, fintech, credit company) extends loans, packages them into a special purpose vehicle, and sells participations in that vehicle to capital market investors.
+
+Securitization represents a significant fraction of the narrow measure of non-bank intermediation and continues to grow [@fsb2025a].
+
+For the banking synthesis, securitization serves a central function: it allows whoever originates the credit (the fintech, the platform) not to need to permanently fund it on their own balance sheet. Originate, package, sell, and free capital to originate more. It is the "plumbing" that connects synthesized assets with synthesized liabilities.
+
+### 4.3 Synthesis of matching management
+
+In a bank, term matching management is a centralized function: the ALM department continuously monitors the correspondence between asset and liability maturities, adjusting the balance sheet composition in real time.
+
+In the banking synthesis, who performs this function?
+
+Nobody — and everybody. **The capital market performs a function analogous to the bank's ALM department**. Each investment fund is designed with internal matching: the fund's term approximately coincides with the term of the loans it finances. A 5-year private debt investment fund finances 3-to-5-year corporate loans. A money market mutual fund invests in short-term instruments and offers short-term redemption.
+
+A structurally relevant difference is that **there is no term transformation** in the classic banking sense. The fund does not take short-term liabilities to fund long-term assets, as a bank does. Therefore, the classic bank run risk does not exist — where depositors demand their money and the bank cannot liquidate its loans in time.
+
+But it also has a disadvantage: **lower capacity to create liquidity**. The term transformation that a bank performs — allowing 30-year mortgages to exist funded by deposits that can be withdrawn tomorrow — is a valuable economic service. It creates liquidity for depositors and long-term financing for borrowers simultaneously. The banking synthesis cannot replicate this transformation without assuming the same risks it seeks to avoid.
+
+### 4.4 Synthesis of services
+
+The service layer is where non-bank actors have achieved a considerable presence in payments, investments, and insurance distribution:
+
+**Payments**: Digital wallets and prepaid cards from fintechs replicate the main transactional services of a bank for the end user, at significant scale across multiple jurisdictions.
+
+**Investments**: Independent asset management companies and investment platforms offer products that compete directly with bank mutual funds, in some cases with lower management fees.
+
+**Insurance**: The embedded insurance model — insurance integrated directly into financial products or transactions — allows fintechs to offer protection without being insurers, through alliances with insurance companies.
+
+**Information**: Open finance aims to reduce the informational advantage of banks by allowing consumers to share their financial data with any authorized provider. The United Kingdom was a pioneer with its Open Banking regulation since 2018, followed by the European Union (PSD2), Brazil, and Australia.
+
+### 4.5 Synthesis of infrastructure
+
+Large-value payment infrastructure has remained largely restricted to banking, though some regulators have begun to expand access:
+
+**United Kingdom**: Since 2017, non-bank entities can access the Faster Payments system and the Bank of England's settlement services directly, without needing to use a bank as an intermediary.
+
+**European Union**: The European Central Bank has gradually opened access to TARGET2 (its large-value settlement system) to electronic money institutions and payment services under the PSD2 directive.
+
+**Australia**: The Reserve Bank of Australia began in 2024 opening its large-value payment system (RITS) to authorized non-bank payment service providers.
+
+Several regulators have initiated opening processes. The argument that central banks themselves use — reducing concentration risk and interdependencies — is consistent with the argument that non-bank actors can access functions previously exclusive to banking.
+
+What **cannot** be synthesized — at least for now — is the safety net: state deposit insurance and access to the lender of last resort remain exclusive to licensed banking. This constitutes one of the most relevant distinctive advantages of the banking license.
+
+### 4.6 The evolved synthesis: beyond replication
+
+Up to this point, the synthesis replicates. But digital infrastructure — programmable distributed ledgers, smart contracts — enables capabilities that go **beyond** what a bank can do. Three dimensions illustrate this:
+
+#### 4.6.1 Granular credit by time: continuous intermediation
+
+In traditional banking infrastructure, credit operates in discrete periods: days, months, years. Interest calculation conventions (actual/360, actual/365, 30/360) reflect this coarse granularity. A bank cannot extend a three-hour loan, nor charge interest proportionally for 47 minutes of use. The limitations are not conceptual but operational: settlement systems process in daily cycles, accounting closes are daily, and payment infrastructure operates in time windows.
+
+Decentralized finance (DeFi)[^defi] protocols have demonstrated that this limitation is a constraint of the infrastructure, not of financial intermediation itself. @schar2021, in an article published in the *Federal Reserve Bank of St. Louis Review*, documented how protocols for loanable funds allow interest to accrue per second or per block (approximately every 12 seconds), with rates that adjust algorithmically based on fund utilization [@gudgeon2020]. Borrowers can enter and exit positions at any time, with interest calculated proportionally to the exact duration of use.
+
+The extreme case is flash loans[^flashloans]: credits that exist only within an atomic transaction — they are originated and repaid in the same operation, with zero temporal duration. If the borrower does not repay, the entire transaction reverts as if it never occurred [@qin2021]. This instrument has no analogue in traditional banking: it is credit without temporal risk, enabled by the atomicity of transactions on distributed ledgers.
+
+One implication of the above is that financial intermediation no longer needs to be limited to the temporal cycles of banking infrastructure. A tokenized investment fund could offer financing by the hour to a firm that needs to cover a transient treasury mismatch, charging interest proportional to the exact time of use — a form of intermediation that could reduce the minimum temporal cost compared to a conventional bank overdraft, whose minimum cost is one day. The BIS acknowledges that programmability "reduces the need for manual interventions and reconciliations that arise from the traditional separation of messaging, clearing, and settlement" [@bis2023]. However, @aramonte2022 caution that decentralized credit in its current form operates as "intermediation without information" — based on algorithmic overcollateralization rather than traditional credit analysis — which limits access to borrowers who already possess assets. The evolution of the banking synthesis will require combining the temporal granularity of programmable infrastructure with the credit assessment capabilities developed by conventional financial intermediation.
+
+#### 4.6.2 The geographic limitation of money and the possibility of global intermediation
+
+If the first frontier is time, the second is space. Traditional monetary architecture is inherently national: each central bank conducts monetary policy optimized for its own economy. The "impossible trinity" formalized by @mundell1963 and @fleming1962 establishes that a country cannot simultaneously have free capital mobility, a fixed exchange rate, and independent monetary policy. What practice has produced are "hard currencies" — particularly the US dollar — that function as quasi-global currencies, but with inherent structural tensions.
+
+@gopinath2020 found empirical evidence that the dollar dominates global trade invoicing far beyond the United States' share of world trade, with significant asymmetric effects: a dollar appreciation predicts a decline in trade volume between countries that do not include the United States. The monetary policy of one central bank — designed for the conditions of a specific geography — propagates asymmetrically across the entire global economy. @carney2019, then Governor of the Bank of England, noted the tensions inherent in this architecture and proposed a "synthetic hegemonic currency" — a digital currency backed by a basket of central bank currencies — as an alternative to dollar dominance.
+
+@brunnermeier2019 introduced the concept of "digital currency areas": zones of monetary influence defined not by national borders but by platform ecosystems and digital integration. This reconceptualization suggests that the natural unit of financial intermediation may not be the country but the network.
+
+For the banking synthesis, this means that non-bank intermediation, operating on tokenized infrastructure and digital currencies (whether CBDCs or regulated stablecoins), could offer genuinely cross-border financial services without the frictions that the current system imposes. The Financial Stability Board [@fsb2020] documented that cross-border payments suffer from four fundamental frictions — high cost, low speed, limited access, and insufficient transparency — all derived from the territorial fragmentation of the monetary system. The BIS multilateral CBDC projects (mBridge, Dunbar) have demonstrated that technology can solve the speed and cost problems, but they cannot easily resolve the governance and sovereignty tensions [@bis2022a; @bis2022b]. The idea of a truly global currency, independent of sovereign issuance, has a long intellectual lineage — from the bancor of @keynes1943 to the IMF's Special Drawing Rights — but all prior implementations have collided with the resistance of sovereign states to ceding monetary control.
+
+The evolved banking synthesis does not claim to solve this geopolitical problem, but it does suggest that financial intermediation can operate with a temporal granularity and a geographic scale that differ from those offered by the current banking architecture, which operates within daily cycles, national jurisdictions, and sovereign currencies.
+
+#### 4.6.3 The centralization–decentralization spectrum
+
+The evolution of financial intermediation can be understood along a fundamental axis: the degree of centralization in the execution of financial contracts.
+
+At one extreme sits **traditional banking**: a centralized institution that concentrates deposit-taking, lending, risk management, information, and payment infrastructure within a single regulated entity. Centralization offers advantages — efficient coordination, identifiable accountability, simplified prudential supervision — but also generates the costs documented by @philippon2015: persistent intermediation margins, limited innovation, and exclusion of unprofitable segments, phenomena documented in the literature on banking competition.
+
+At the other extreme sit **decentralized finance**: autonomous protocols that execute intermediation functions through smart contracts on open distributed ledgers, without identifiable intermediaries [@schar2021]. Decentralization promises radical transparency, permissionless access, and elimination of intermediaries, but introduces its own limitations: intermediation without credit information [@aramonte2022], diffuse governance, and vulnerability to technical failures.
+
+The banking synthesis occupies — and articulates — the space between both extremes. It is neither the vertical integration of banking nor the radical disintermediation of decentralized finance. It is a **regulated decentralization**: multiple specialized actors (funds, fintechs, platforms) executing specific financial functions, coordinated by capital markets and supervised by regulators, operating on infrastructure that may be centralized (traditional FMIs), permissioned distributed (the BIS unified ledger), or open decentralized (public protocols).
+
+This intermediate position seeks to combine the strengths of both approaches: it aspires to incorporate the efficiencies of decentralization — competition, transparency, programmability — while seeking to preserve the guarantees of regulation — investor protection, systemic stability, prudential supervision — though this combination introduces its own challenges, including supervisory coordination and prevention of regulatory arbitrage. The question that defines the future of financial intermediation is not centralization *or* decentralization, but what combination of both maximizes efficiency, stability, and inclusion for each specific financial function.
+
+---
+
+## 5. Integrated table: banking anatomy vs. synthesis
+
+| Function | Bank | Synthesis | Description |
+|---|---|---|---|
+| ***Infrastructure*** | | | |
+| Retail payments | Accounts, cards | Digital wallets, prepaid | Non-bank actors with relevant market share across multiple jurisdictions |
+| Large-value payments | Exclusive RTGS access | Regulatory opening (UK, EU, AU) | Relevant barrier; some regulators have initiated partial openings |
+| Safety net | State guarantee + lender | No equivalent | Central distinctive advantage. No current equivalent outside licensed banking |
+| Digital infrastructure | Existing bank systems; daily cycles | Tokenization; smart contracts | Digital infrastructure: programmability, higher-frequency settlement |
+| ***Product layer*** | | | |
+| Deposit-taking | Accounts, deposits, proprietary funds | Third-party mutual funds | Bank-funding sources interface |
+| Lending | Loans, guarantees, credit lines | Investment funds, platforms | Bank-borrowers interface |
+| Information | Credit history, custody, advisory | Open finance | Informational advantage. Open finance aims to reduce it |
+| Derivatives and insurance | Derivatives desk; insurers | Embedded insurance | Insurance as options (section 3.4.4). The synthesis integrates them into digital products |
+| ***ALM Liabilities — ↑ risk*** | | | |
+| Central bank window | SLF and ILF | No equivalent | CB liquidity at known rate; exclusive to banking license |
+| Demand deposits | Checking accounts | Remunerated accounts via mutual funds | Low-cost funding, withdrawable on demand. The synthesis may offer different returns to the saver, depending on market conditions |
+| Term deposits | Fixed-term deposits | Money market mutual funds | Term certainty. Funds replicate with daily liquidity |
+| Debt issuance | Bonds and covered bonds | Direct issuance by non-banks | Market debt to match long assets |
+| Capital | Basel III/IV | Investor capital | Absorbs losses. In funds, risk passes to the investor |
+| ***ALM Assets — ↑ risk*** | | | |
+| Central bank window | SDF | No equivalent | CB surplus deposits; pure sovereign risk |
+| Sovereign securities | Reserves, CB bonds, government bonds | Mutual fund portfolios | Minimal risk. This is what mutual funds buy |
+| Corporate bonds | Bank and corporate bonds | Fixed income mutual funds | Higher returns; issuer credit risk |
+| Collateralized credit | Mortgage, auto | Securitization; real estate funds | Real collateral. Securitization separates originator from funder |
+| Uncollateralized credit | Consumer, cards, revolving | Investment funds; BNPL | Highest risk and margin. Funds seek to replicate credit assessment |
+| ***Matching management*** | | | |
+| Term transformation | ALM department | Fund term = loan term | Bank transforms terms (with associated risk). Funds seek to match terms (reducing mismatch but also liquidity creation) |
+
+---
+
+## 6. Structural characteristics of the synthesis
+
+If the banking synthesis is possible, what structural differences does it present compared to bank intermediation? This section examines six dimensions.
+
+### 6.1 Cost of intermediation and competition
+
+@philippon2015 documented that the unit cost of financial intermediation in the United States has remained stable for over a century, despite revolutions in telecommunications, computing, and data processing. The cost of intermediation has not decreased for the end user. Market concentration is part of the explanation: @berger1989 found empirical evidence that more concentrated banking markets offer less favorable rates to depositors, and @claessens2004 found that regulatory barriers to entry — not intrinsic market characteristics — are a central determinant of the degree of banking competition.
+
+The banking synthesis could introduce structural competition by replacing a single integrated intermediary (the bank) with a chain of specialized actors that compete among themselves. @buchak2018 documented that the entry of non-bank lenders — driven by both technology and regulation — has generated a measurable compression in mortgage credit costs in the United States. The available empirical evidence suggests that, at least in the US mortgage market, non-bank competition has been associated with lower costs and better conditions for consumers.
+
+### 6.2 Capital intensity
+
+Intermediation requires capital. For every unit of credit it extends, a bank must set aside a fraction as regulatory capital, proportional to its risk-weighted assets [@bcbs2010]. That capital has an opportunity cost and reduces return on equity.
+
+In an investment fund, the asset management company does not need capital proportional to the loans the fund finances, because it does not assume credit risk: this is transferred directly to the investors. The fund manager's regulatory capital relates to its operation as an administrator (operational risk), not to the volume of intermediation. This allows credit intermediation that is less capital-intensive.
+
+### 6.3 Transparency and alignment of interests
+
+How much does a bank charge for intermediation? The client does not necessarily know with precision. The spread between the deposit rate and the lending rate is contained within the balance sheet structure, and is not directly observable to either the depositor or the borrower. In an investment fund, the management fee is explicit, published, and comparable. The investor can know how much they pay for management.
+
+Moreover, the investor-participant of the fund directly assumes the risk and directly receives the return. There is no intermediary capturing a spread between both sides of the transaction that is not directly visible to the investor. This structure of interest alignment could constitute a relevant competitive difference, particularly in a context of growing regulatory demand for greater financial transparency.
+
+### 6.4 Specialization, agility, and risk compartmentalization
+
+A bank operates with a diversified balance sheet: it must absorb mortgages, auto credit, factoring, real estate financing, fintech financing — all under the same capital rules. Investment funds, not subject to that constraint, can specialize. Specialization allows developing competencies in sectoral risk assessment, collection operations, and relationships with originators that may differ from those developed by a department within a bank.
+
+The logic has a formal basis in industrial organization. @stigler1951 argued that the division of labor — and with it the vertical disintegration of an industry — is limited by the extent of the market: when the market is small, a single actor integrates all functions because there is insufficient scale to sustain specialists; when the market grows, functions migrate toward specialized actors. Financial intermediation exhibits a trajectory consistent with this logic: while capital markets were small and recording technology limited, concentrating all functions in a bank was an efficient configuration. As capital markets deepen and recording technology allows coordinating distributed actors, functional specialization becomes viable — and its comparative efficiency becomes a relevant empirical question.
+
+But specialization does not only potentially improve operational efficiency; it also **compartmentalizes systemic risk**. In a vertically integrated bank, a loss in the loan portfolio erodes the capital base that also supports deposits, payments, and all other services. The bank run is, in essence, this internal contagion: a problem in asset quality contaminates confidence in liabilities. In the banking synthesis, each function resides in a separate legal entity with an independent balance sheet. The failure of a private credit fund does not automatically infect the money market mutual fund or the payments platform — they are distinct vehicles, with separate assets and different regulators. This compartmentalization is a structural consequence of the synthesis that regulators have attempted to replicate *within* banking — through the functional separation proposed by the Vickers Commission [@vickers2011] and the Liikanen Report [@liikanen2012] — with partial results. In the banking synthesis, compartmentalization emerges from the architecture itself.
+
+### 6.5 Competition as an engine of efficiency
+
+A bank competes with other banks — often in concentrated markets. In the banking synthesis, competition multiplies and fragments: asset management companies compete to raise capital, originators compete to lend, fintechs compete to serve. Each link in the chain faces its own competitive pressure, and margin compression could accumulate along the entire chain. @vives2016 argued that competition and financial stability are not necessarily incompatible: a well-designed regulatory framework can foster both simultaneously. In a concentrated banking system (where few banks control most of the market), this competitive pressure tends to be lower, with costs to consumers in the form of lower deposit rates and higher lending rates.
+
+### 6.6 Financial inclusion
+
+A particularly relevant dimension of the banking synthesis is its potential for financial inclusion. @suri2016, in a study published in *Science*, documented that a non-bank mobile payment platform in Kenya lifted hundreds of thousands of households out of poverty and shifted hundreds of thousands of women from agriculture to entrepreneurship[^mpesa]. @mckinsey2016 estimated that digital financial services — provided predominantly by non-bank actors — could generate a considerable macroeconomic impact in emerging economies and provide financial services to populations previously excluded from the banking system.
+
+The explanation is structural: traditional banking requires physical infrastructure (branches), high regulatory capital, and operationally intensive processes that make it economically costly to serve low-value segments. Non-bank actors, with digital cost structures and proportional regulation, can profitably serve these segments. The banking synthesis, in this sense, is not only a competitive alternative to banking, but may also constitute, for broad segments of the global population, a **pathway of access** to formal financial services.
+
+---
+
+## 7. Challenges of the synthesis and responses in progress
+
+The objections to the banking synthesis are serious and deserve detailed analysis. This section examines them alongside the regulatory and market responses that have been developed.
+
+### 7.1 Liquidity and stability under stress
+
+In September 2008, the Reserve Primary Fund broke the buck. In March 2020, money markets suffered a dash for cash. The critics are right: funds that offer daily redemption on assets that are not fully liquid can experience dynamics similar to bank runs.
+
+However, the regulatory response has been multidimensional and progressive. The US Securities and Exchange Commission (SEC) reformed money market mutual fund rules in 2010, 2014, and 2023, introducing minimum liquidity requirements, mark-to-market valuation for institutional funds, and liquidity management mechanisms (redemption fees, gates). The European Union implemented the Money Market Fund Regulation (MMFR) in 2017. The FSB and IOSCO have proposed additional frameworks for liquidity management in open-ended funds [@fsb2025a]. These reforms do not eliminate the risk, but they mitigate it through concrete mechanisms, and suggest that regulation is evolving to adapt to fund-based intermediation.
+
+But traditional banking is not immune either. Silicon Valley Bank, Signature Bank, First Republic — all three collapsed in 2023. In the case of Silicon Valley Bank, more than 90% of deposits exceeded the deposit insurance limit, making them functionally equivalent to unprotected investments [@jiang2023]. The run was on *uninsured* deposits — a dynamic comparable to what is criticized in funds. These episodes suggest that banking's advantage in terms of stability is more relative than is sometimes assumed.
+
+### 7.2 Regulatory coordination
+
+One bank, one regulator. In the banking synthesis, the chain fragments: the securities commission supervises the funds, the payment regulator supervises the fintechs, the central bank supervises the infrastructure. Who sees the whole picture?
+
+Regulators are actively addressing this coordination challenge. The FSB coordinates the supervision of non-bank intermediation at the global level. At the national level, several countries are moving toward **activity-based regulation** instead of entity-based regulation: regulating the function (credit, deposit-taking, payments) regardless of who performs it [@arner2020]. This approach, consistent with Merton's functional perspective, constitutes a regulatory framework coherent with a system where the banking synthesis is a reality.
+
+### 7.3 Systemic interconnections
+
+Banks and non-bank actors do not operate in parallel universes. The Federal Reserve Bank of New York documented "significant conglomeration synergies" between both under the same corporate structure — channels of interdependence that require integrated supervision [@nyfed2023]. The challenge is real: although the synthesis compartmentalizes risk by separating functions into independent legal entities (as described in section 6.4), that separation does not eliminate interconnections *between* entities. A private credit fund may depend on bank liquidity lines; a payments platform may settle through correspondent banks; a mutual fund may invest in instruments issued by banks. Compartmentalization reduces *intra*-institutional contagion but not *inter*-institutional contagion.
+
+However, this challenge is neither new nor exclusive to the synthesis. Universal banks — which combine commercial banking, investment banking, and asset management — generate comparable interconnections within a single entity. The difference is that in the synthesis, interconnections are contractual and observable (a credit line contract, a correspondent banking agreement), while in an integrated bank they are internal and less directly observable by third parties. Supervision of the contractual and observable can, in principle, be more feasible than supervision of internal interconnections.
+
+### 7.4 The bank-synthesis convergence: inevitable or avoidable?
+
+The experience of direct lending platforms is a warning: several attempted to synthesize bank credit without synthesizing funding. When market conditions tightened, market funding contracted and platforms could not sustain their credit volume [@fprime2024]. Some solved it by acquiring small banks; others by obtaining banking licenses.
+
+But this convergence is not universal. Major private credit managers have built credit intermediation operations of systemic scale [@aima2025] without needing banking licenses, funding themselves with long-term institutional capital. The key difference is the type of funding: those who depend on volatile retail funding tend to converge toward banking; those who access stable institutional funding can maintain the synthesis without needing a banking license.
+
+A central question is what regulatory configuration allows obtaining the greatest potential benefits from the coexistence of banking and synthesis (competition, efficiency, inclusion), while simultaneously managing its risks (liquidity, interconnections, investor protection).
+
+---
+
+## 8. Conclusions
+
+### 8.1 The synthesis as evolution: anomaly or structural change?
+
+For six hundred years — from the wooden bench in the Florentine square to the global bank of the twenty-first century — intermediating was synonymous with being a bank. That exclusivity is changing. Non-bank intermediation exceeds half of global financial assets [@fsb2025b]; private credit is growing at a pace that exceeds banking [@aima2025]; money market mutual funds rival deposits as a funding source [@ici2026]. These data suggest a structural shift in the composition of the financial system.
+
+The available data are consistent with what theory anticipated. @allen2000 documented a tendency for financial systems to evolve from bank-based structures toward capital market-based structures as economies develop. @merton1995 proposed that financial innovation would redistribute functions across institutions in unforeseen ways. @schumpeter1942 described the general process: creative destruction tends to replace existing institutional forms with alternatives that, in his analysis, can be more efficient, preserving the underlying economic functions.
+
+This article proposes that the banking synthesis can be interpreted as a contemporary manifestation of that dynamic: the migration of financial intermediation from vertically integrated institutions (banks) toward ecosystems of specialized actors coordinated by technology, regulation, and capital markets.
+
+### 8.2 A shift in perspective: from surveillance to design
+
+Surveillance is not the same as design. Regulators have framed the growth of non-bank intermediation as a phenomenon requiring **surveillance**: how much systemic risk it generates, how much escapes the regulatory perimeter. That perspective is necessary, and the banking synthesis proposes it can be complemented with one oriented toward **design**: how should a financial system be organized to maximize competition, inclusion, and efficiency, while managing the risks inherent in any form of intermediation?
+
+The answer involves three principles already being adopted globally: activity-based regulation (regulating the function, not the entity), infrastructure opening (access to payment systems and financial data for regulated non-bank actors), and regulatory proportionality (requirements calibrated to the actual risk of each activity, not to the historical risk of banking).
+
+### 8.3 Implications for the industry and consumers
+
+For the banking industry, the central implication is that the historical exclusivity of financial intermediation faces growing competitive pressure. Not through a frontal attack, but through a parallel construction that offers regulated alternatives to specific banking functions. Banks that respond with innovation — as many are doing — can coexist and compete. Competitive pressure can, under an appropriate regulatory framework, benefit the system as a whole.
+
+For consumers, the implication is more direct: potentially more choices, lower intermediation costs, and greater transparency — though with risks of its own such as the absence of state guarantees and the complexity of the regulatory chain — and, for broad segments of the global population, additional pathways of access to formal financial services. The four irreducible dimensions of finance — economy, contracts, time, and risk — have not changed. They are unlikely to change. What changes is who executes them, at what cost, and for whom.
+
+### 8.4 The name
+
+"Bank" encodes a piece of furniture. A wooden plank in a fourteenth-century Italian square. The name survived six hundred years because the function it designated did not change: take deposits, lend, manage the matching, process payments. From the Florentine money changer to the global bank of the twenty-first century, what changed was the scale, the technology, the regulation. Not the essence.
+
+But now the function is preserved and the form mutates. Mutual funds that take deposits, investment funds that lend, platforms that process payments, capital markets that manage the matching. Each function executed by a different, regulated, specialized actor. The compound replicates the main functions of a bank — though with structural differences — but there is no bank.
+
+What do we call that?
+
+The question is not semantic. Names are conceptual frameworks. Calling this new structure a "bank" is imprecise — it has no banking license, it does not create money, it does not access the lender of last resort. Calling it "non-bank intermediation" defines it by what it is *not*. Calling it "financial technology" reduces it to its tool. No current name captures what is emerging: a way of organizing financial intermediation that preserves the essential functions — managing time and risk — but distributes them across a network of specialized actors instead of concentrating them in an integrated institution.
+
+Perhaps the clue lies in what this article has identified as the relevant variable: the record. If every financial asset is, ultimately, a value-bearing record, then the history of finance can be read not only as the history of the institutions that intermediate, but also as the history of the technology that records. The bank was, from its origin, a recording technology — the money changer's ledger on the wooden furniture. What mutates is not the function nor the need to record, but the medium of the record: from paper to code, from institutional trust to cryptographic verifiability. If the name "bank" encodes a piece of furniture, what comes next should perhaps encode a different dimension: not where the intermediary sits, but how value is recorded.
+
+If banking was born from a piece of furniture in a square, the banking synthesis is born from protocols in a network. From the broken bench in Florence to the code that executes contracts in seconds. The core functions persist, though with structurally relevant differences. The name does not yet exist.
+
+### 8.5 Open questions
+
+Every analytical framework opens new questions. This is no exception.
+
+A central question is monetary. What happens with money creation, the money multiplier, and the transmission of monetary policy when credit intermediation migrates from institutions that create money (banks) to institutions that do not (funds)? If "loans create deposits" is exclusive to banking, what mechanism replaces — or complements — it in a system where intermediation is distributed?
+
+This question has an institutional corollary that digitalization makes urgent: if the constraint that historically justified commercial intermediation was, in part, a capacity constraint — no monetary issuer could maintain the value-bearing records of millions of individual accounts — and if recording technology now permits it, can the central bank directly serve more participants in the economy? The literature on central bank digital currencies explores this possibility [@brunnermeier2019], but the tension between technological feasibility and institutional implications remains unresolved: intermediating directly forces the central bank to make credit allocation decisions that are inherently political, and creates a single point of failure for the entire financial system.
+
+There is an empirical question: how does the banking synthesis manifest in a specific economy? The conceptual framework is global, but implementation is necessarily local — it depends on the regulation, market structure, technological penetration, and consumer behavior of each jurisdiction. A national case study can reveal dynamics that the global perspective abstracts.
+
+There is a regulatory question: can activity-based regulation — regulating the function regardless of who performs it — fully replace entity-based regulation? Or are there financial functions where institutional form matters as much as function itself?
+
+And there is a question about the remuneration of value. If the primary function of the central bank is to protect the stability of the currency's value and ensure the payment chain, and if the policy rate reflects the price of time in the economy, it is worth asking whether that rate should directly remunerate balances in the real-time gross settlement system, and to what extent it should be passed through to depositors. Empirical evidence shows that banks pass through less than half of policy rate changes to their depositors — capturing the spread as "deposit franchise" [@drechsler2017] — which, according to some analyses, weakens monetary transmission and can be interpreted as an implicit value transfer from savers to intermediaries.
+
+If the deposit spread is, in part, a rent derived from the historical limitations of recording technology — the central bank could not maintain the value-bearing records of millions of individual accounts, and delegated that function to intermediaries who charged for executing it — then digitalization not only enables the banking synthesis but invites a reexamination of the economic justification for the spread itself. The case of TNB USA Inc. v. the Federal Reserve Bank of New York — where an intermediary attempted to create a vehicle for direct pass-through of the policy rate to depositors and the Fed actively prevented it — illustrates that this question is not abstract: it is a living institutional tension.
+
+These questions extend the analysis of the banking synthesis toward dimensions that this article identifies but does not resolve.
+
+---
+
+## Notes
+
+[^moneymarket]: Mutual funds: open-ended investment vehicles with daily redemption liquidity, regulated by the securities commission. They include various categories according to their investment policy: money market (short-term, high-liquidity debt), fixed income, equities, among others. In the context of the banking synthesis, money market mutual funds are the most relevant as a substitute for deposits.
+
+[^fundinv]: Investment funds: closed-end or semi-closed investment vehicles with defined terms and lower liquidity than mutual funds. They include private debt, private equity, real estate, and infrastructure funds. In the context of the banking synthesis, private debt investment funds are the most relevant as a substitute for bank credit.
+
+[^riskpremia]: Risk premia: compensations that the investor demands for assuming specific sources of uncertainty. The four fundamental premia in a single-currency economy are: inflation premium, default premium or credit spread, liquidity premium, and maturity premium or term premium. In multi-currency operations, the currency risk premium is added.
+
+[^infoinsen]: Informationally insensitive securities: financial instruments whose value does not change with new information about the underlying assets, eliminating the need for the holder to constantly monitor the quality of the issuer. Bank deposits are the paradigmatic example.
+
+[^corrigan]: Reference to Corrigan, E. G. (1982). "Are Banks Special?" Federal Reserve Bank of Minneapolis, Annual Report. Foundational essay that defined the three characteristics that make banks "special": access to the payment system, deposit insurance, and a role in monetary transmission.
+
+[^boe]: Reference to McLeay, M., Radia, A. and Thomas, R. (2014). "Money creation in the modern economy." Bank of England, Quarterly Bulletin Q1 2014.
+
+[^stablecoins]: Stablecoins: digital tokens designed to maintain a stable value relative to a fiat currency (typically the US dollar), backed by reserves of liquid assets such as bank deposits, short-term sovereign bonds, or a combination of both.
+
+[^defi]: DeFi (Decentralized Finance): financial protocols built on programmable distributed ledgers (blockchains) that execute intermediation functions — credit, exchange, asset management — through smart contracts, without centralized intermediaries.
+
+[^flashloans]: Flash loans: credits that are originated and repaid within a single atomic transaction on a distributed ledger. If the borrower does not repay the amount within the transaction, it reverts completely, eliminating default risk for the lender. They have no analogue in traditional financial infrastructure.
+
+[^breakthebuck]: The expression "break the buck" refers to when the net asset value of a money market mutual fund falls below par (the nominal value per share in its base currency), indicating a capital loss for investors.
+
+[^icidata]: Investment Company Institute (ICI), *Weekly Money Market Mutual Fund Assets*, week ending February 18, 2026. The ICI publishes weekly data on money market mutual fund assets in the United States. Source: https://www.ici.org/research/stats/mmf
+
+[^europeammf]: Crane Data, *Money Fund Intelligence International*, February 12, 2026. European and offshore money market mutual funds are predominantly denominated in US dollars, euros, and pounds sterling.
+
+[^secondarymarket]: Evercore, *2025 Credit Secondary Market Survey*, January 2026. Reports significant growth in transaction volume in the private credit secondary market. Source: Evercore Private Capital Advisory.
+
+[^mpesa]: Suri, T. and Jack, W. (2016). The long-run poverty and gender impacts of mobile money. *Science*, 354(6317), 1288-1292. The study used household panel data from Kenya between 2008 and 2014 to measure the causal impact of mobile money adoption on poverty and female employment.
+
+---
+
+*Author: Miguel Cornejo Vargas*
+
+*Date: February 2026*

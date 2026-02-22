@@ -1,0 +1,893 @@
+\documentclass[11pt, letterpaper]{article}
+
+% Encoding and fonts
+\usepackage{fontspec}
+\setmainfont{Libertinus Serif}
+
+% Language
+\usepackage[spanish]{babel}
+
+% Geometry
+\usepackage[letterpaper, top=2.5cm, bottom=3cm, left=2.5cm, right=2.5cm]{geometry}
+
+% Tables
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{array}
+
+% Lists
+\usepackage{enumitem}
+
+% URLs
+\usepackage[hidelinks, breaklinks]{hyperref}
+\usepackage{url}
+\urlstyle{same}
+
+% Bibliography (BibLaTeX + Biber, APA 7 style)
+\usepackage[style=apa, backend=biber]{biblatex}
+\addbibresource{referencias.bib}
+
+% Headers and footers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+% Spacing
+\usepackage{setspace}
+\onehalfspacing
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em plus 0.1em minus 0.1em}
+
+% Pagination
+\raggedbottom
+\widowpenalty=150
+\clubpenalty=150
+\interfootnotelinepenalty=10000
+
+% Title
+\usepackage{titling}
+\pretitle{\begin{center}\LARGE\bfseries}
+\posttitle{\end{center}\vspace{0.5cm}}
+\preauthor{\begin{center}\large}
+\postauthor{\end{center}}
+\predate{\begin{center}\normalsize}
+\postdate{\end{center}\vspace{1cm}}
+
+% Sections
+\usepackage{titlesec}
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\vspace{-0.3em}\rule{\textwidth}{0.4pt}]
+\titleformat{\subsection}{\normalsize\bfseries}{}{0em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\itshape}{}{0em}{}
+\titlespacing*{\section}{0pt}{2ex plus 1ex minus 1.5ex}{0.8ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{1.8ex plus 1ex minus 1ex}{0.5ex plus .2ex}
+\titlespacing*{\subsubsection}{0pt}{1.5ex plus 1ex minus 1ex}{0.5ex plus .2ex}
+
+% No section numbering
+\setcounter{secnumdepth}{0}
+
+\author{Miguel Cornejo Vargas}
+\date{Febrero 2026}
+
+\begin{document}
+\shorthandoff{"}
+\title{La síntesis bancaria: anatomía de la replicación no bancaria de la estructura de intermediación financiera}
+\maketitle
+\thispagestyle{fancy}
+
+
+\section{Resumen}
+
+
+En una plaza de Florencia, siglo XIV, un hombre se sienta detrás de un tablón de madera. Cambia monedas entre ciudades que acuñan las suyas, anota deudas en un libro que solo él sabe leer, guarda el oro de quienes no confían en sus propios muros. El mueble se llama \textit{banco}. Cuando el hombre quiebra, la comunidad le rompe el mueble en la plaza: \textit{banca rotta}. Del castigo nació una palabra; del mueble, una industria. El tablón se convirtió en edificio de mármol con columnas corintias. El edificio se multiplicó en sucursales por cinco continentes. Las sucursales migraron a servidores, los servidores a la nube. Pero en cada metamorfosis, la operación conservó sus elementos centrales: recibir dinero de quienes lo tienen, entregarlo a quienes lo necesitan, y en ese intervalo —donde el tiempo crea incertidumbre y la incertidumbre crea riesgo— cobrar por gestionar la incertidumbre. Seiscientos años. La pregunta es qué viene después.
+
+
+Este artículo propone una respuesta. Lo que viene no es otro banco sino un \textbf{compuesto}: la \textbf{síntesis bancaria}, una estructura funcionalmente equivalente a un banco construida mediante la combinación de vehículos de inversión regulados —fondos mutuos para la captación, fondos de inversión para la colocación, tecnológicas financieras para la infraestructura transaccional— que en conjunto replican la intermediación financiera sin una licencia bancaria. Se diferencia de la desagregación y de la intermediación no regulada en que es una recomposición habilitada activamente por los reguladores que abren sistemas de pago, mandatan la apertura de datos financieros y crean marcos para nuevos actores. \textcite{merton1995} articuló la lógica que subyace a este fenómeno: las funciones financieras son estables; las instituciones que las ejecutan, no. Las tres funciones esenciales de un banco —transformación de liquidez \parencite{diamond1983}, monitoreo delegado \parencite{diamond1984} y creación de títulos informativamente insensibles \parencite{gorton1990}— requieren competencia, información y regulación. Este artículo argumenta que no requieren necesariamente una licencia bancaria.
+
+
+La escala es consistente con esta lectura. La intermediación no bancaria ya representa más de la mitad de los activos financieros globales y crece al doble de la velocidad de la banca \parencite{fsb2025b}. \textcite{philippon2015} documentó que el costo de intermediación financiera en Estados Unidos no ha disminuido en más de un siglo. La síntesis bancaria, al introducir competencia estructural donde antes había concentración funcional, tiene el potencial de modificar esa dinámica.
+
+
+Si el banco fue una solución institucional desarrollada para gestionar el riesgo intertemporal, y si esa solución puede ahora construirse de otro modo —con funciones análogas pero distinta forma institucional—, entonces la pregunta que cierra este artículo no es técnica sino de identidad: ¿cómo llamamos a lo que ya no es un banco pero replica las funciones esenciales de un banco?
+
+
+\noindent \textbf{Palabras clave:} síntesis bancaria, intermediación financiera no bancaria, perspectiva funcional, gestión de activos y pasivos, competencia financiera, regulación habilitadora, inclusión financiera
+
+
+
+\section{1. El tiempo, el riesgo y el banco}
+
+
+\subsection{1.1 Economía política: los agentes y su territorio}
+
+
+Antes de las finanzas está la economía. Y antes de la economía como abstracción está la \textbf{economía política}: el estudio de cómo los agentes de un territorio particular producen, intercambian y distribuyen riqueza dentro de un marco institucional que es producto de su propia historia \parencite{smith1776}. No existe una economía genérica. Existe la economía de un lugar, con sus agentes, sus instituciones, sus reglas y su acervo cultural. \textcite{mill1848} lo planteó en términos similares: la economía política estudia los fenómenos de la sociedad que surgen de las operaciones conjuntas de los seres humanos para la producción de riqueza —pero esos seres humanos viven en una sociedad concreta, no en un vacío teórico. \textcite{north1990} argumentó que las instituciones —las reglas formales e informales que estructuran la interacción humana— son dependientes de la trayectoria histórica de cada territorio: lo que resulta viable en una jurisdicción puede no serlo en otra, porque las instituciones reflejan el acervo cultural que las produjo.
+
+
+Esta especificidad territorial constituye, en el marco de este análisis, una variable central. \textcite{polanyi1944} argumentó que la economía no existe como un sistema autónomo, sino que está incrustada en las relaciones sociales de cada comunidad —en sus normas, sus jerarquías, sus expectativas de reciprocidad. \textcite{granovetter1985} formalizó esta intuición al mostrar que la acción económica, incluso en sociedades industriales modernas, no puede analizarse independientemente de la estructura social en la que ocurre. Desde esta perspectiva, el mercado no opera de forma autónoma respecto de la sociedad, sino que está condicionado por ella.
+
+
+Dentro de este marco territorial e institucional, la \textbf{política monetaria} cumple dos funciones que definen el perímetro del sistema financiero. La primera es la \textbf{estabilidad de precios}: proteger el valor de la moneda midiendo su poder adquisitivo contra una canasta representativa de bienes y servicios \parencite{imf2020}. Esa canasta es, en sí misma, una construcción cultural —el peso del arroz en Asia, del pan en Europa, del maíz en Mesoamérica reflejan los patrones de consumo de cada territorio, no una medida universal. La segunda es el \textbf{aseguramiento de la cadena de pagos}: garantizar que los agentes puedan transferir valor entre sí de forma segura, eficiente y final \parencite{cpmiiosco2012}. Los sistemas de pago, compensación, liquidación y registro son infraestructuras críticas cuyo diseño refleja el marco jurídico, la estructura de mercado y la herencia institucional de cada jurisdicción.
+
+
+La política monetaria opera, entonces, sobre agentes concretos en un territorio concreto, con una moneda cuyo valor se mide contra los bienes que esos agentes consumen, y a través de una cadena de pagos que esos agentes utilizan —un territorio cuyo acervo cultural condiciona la configuración del sistema financiero.
+
+
+Es dentro de este marco —un territorio, sus agentes, su moneda, su cadena de pagos— donde emerge la necesidad de intermediar entre el presente y el futuro. Esa necesidad es el origen de las finanzas.
+
+
+\subsection{1.2 Las cuatro dimensiones irreducibles}
+
+
+Las finanzas emergen de la intersección de cuatro elementos primitivos: la \textbf{economía} —la asignación de recursos escasos entre usos alternativos—, la \textbf{teoría de contratos} —acuerdos ejecutables entre partes que definen derechos y obligaciones contingentes \parencite{hart1995}—, el \textbf{tiempo} —la dimensión que crea la necesidad de transferir valor entre el presente y el futuro— y el \textbf{riesgo} —la incertidumbre sobre los estados futuros del mundo. Estas cuatro dimensiones son irreducibles. Eliminar cualquiera de ellas elimina la necesidad misma de las finanzas.
+
+
+El riesgo es hijo del tiempo —no del mero transcurso cronológico, sino de la existencia de un futuro incierto. \textcite{knight1921} formalizó la distinción entre riesgo —incertidumbre cuantificable— y la incertidumbre pura —estados futuros que ni siquiera podemos modelar—, pero ambos requieren tiempo para existir. Sin intervalo entre una decisión y su resultado, no hay nada que gestionar. Un préstamo es riesgoso porque entre el desembolso y el repago transcurre tiempo —y en ese intervalo, el deudor puede quebrar, la tasa puede subir, la moneda puede devaluarse. Si el ciclo fuera instantáneo, no habría riesgo. No habría finanzas. No habría bancos.
+
+
+Pero si las finanzas existen porque el tiempo crea riesgo, toda operación financiera necesita ser \textit{registrada}. Un depósito es un registro que dice "esta persona tiene derecho a retirar X". Un crédito es un registro que dice "esta persona debe pagar Y en el plazo Z". Un bono, una acción, un derivado, una póliza de seguro: todos son \textbf{registros portadores de valor} alojados en una base de datos —ya sea un libro de cuentas del siglo XV, un \textit{mainframe} del siglo XX o un registro distribuido del siglo XXI. \textcite{kocherlakota1998} mostró, dentro de un modelo formal, que el dinero puede interpretarse como equivalente a una tecnología de registro —memoria social codificada—. Este artículo extiende esa lógica y propone que todo activo financiero es un registro portador de valor, y la calidad de la tecnología de registro —su seguridad, su inmutabilidad, su accesibilidad— es una variable relevante del desarrollo financiero. La historia de las finanzas no es solo la historia de la intermediación entre el presente y un futuro incierto. Es, simultáneamente, la historia de la mejora progresiva de la tecnología que registra esa intermediación.
+
+
+\subsection{1.3 Del banco al banco}
+
+
+La palabra "banco" es un fósil lingüístico. Viene del italiano \textit{banco} —el mueble de madera donde los cambistas lombardos operaban en las plazas de Florencia, Génova y Venecia en el siglo XIV \parencite{deroover1963}. El negocio era simple: cambiar monedas de distintas ciudades-estado, gestionar letras de cambio, llevar cuentas. Cuando un cambista no podía honrar sus compromisos, la comunidad le rompía el mueble en público. \textit{Banca rotta}. Bancarrota. El nombre del castigo sobrevivió al castigo mismo.
+
+
+Pero el mueble era más de lo que parecía. Sobre ese tablón de madera se ejecutaban las operaciones que siglos después formalizaría la teoría financiera: transferencia de valor entre plazas (pagos), custodia temporal de recursos (captación), financiamiento contra promesa de repago (crédito). La diferencia era principalmente de escala y sofisticación, aunque las operaciones centrales compartían elementos comunes.
+
+
+El salto conceptual ocurrió cuando los orfebres ingleses del siglo XVII descubrieron que no todos los depositantes retiraban su oro al mismo tiempo. Si cien personas depositaban una moneda cada una, el orfebre podía prestar ochenta y mantener veinte de reserva —con alta probabilidad de poder honrar los retiros. Había nacido la reserva fraccionaria: crear crédito con el dinero de otros, confiando en la ley de los grandes números. El riesgo era evidente —si demasiados retiran a la vez, el sistema colapsa—, pero el incentivo económico era considerable.
+
+
+El Banco de Ámsterdam (1609) institucionalizó la confianza \parencite{quinn2007}. En lugar de depender de la reputación individual de cada cambista, un banco público respaldado por la ciudad garantizaba que un florín depositado podía retirarse íntegramente. La innovación central fue institucional: la confianza comenzó a desplazarse de la persona al sistema. El Banco de Inglaterra (1694) completó la arquitectura al inventar la red de seguridad: un prestamista de última instancia que, como teorizaría \textcite{bagehot1873}, debía prestar libremente en tiempos de pánico, a tasas altas, contra buen colateral. Con esto, el riesgo existencial de la reserva fraccionaria —la corrida bancaria— tenía un antídoto institucional.
+
+
+La secuencia importa: los bancos comerciales no nacieron porque un banco central les delegara funciones. Nacieron primero —siglos antes— porque la economía necesitaba intermediación y ninguna institución pública la proveía. Los bancos centrales surgieron después, como respuesta institucional a las inestabilidades que la banca privada generaba \parencite{goodhart1988}. El Riksbank sueco (1668) nació del colapso de un banco comercial. El Banco de Inglaterra nació cuando los banqueros privados se negaron a financiar al soberano. La Reserva Federal (1913) nació de pánicos bancarios recurrentes. La relación no es de delegación sino de evolución: primero la función privada, después la supervisión pública.
+
+
+El banco comercial moderno, tal como cristalizó en el siglo XIX y se perfeccionó en el XX, fue la integración vertical de todas estas funciones bajo un solo techo y una sola licencia: captación de depósitos, otorgamiento de crédito, gestión del calce entre ambos, procesamiento de pagos, custodia de valores, distribución de seguros. Una estructura integrada verticalmente.
+
+
+Seiscientos años. El mueble se convirtió en edificio de mármol, el libro de cuentas en \textit{mainframe}, la plaza en red digital. Pero la función central se mantuvo: intermediar entre quienes tienen recursos y quienes los necesitan, gestionando el tiempo y el riesgo en el camino. El nombre tampoco cambió. Seguimos llamándolo banco.
+
+
+\subsection{1.4 La pregunta}
+
+
+Si un banco es, en esencia, una máquina de intermediación financiera —toma dinero de quienes lo tienen y lo entrega a quienes lo necesitan, cobrando la diferencia—, y si todas las demás funciones son servicios construidos alrededor de esta operación central, entonces la pregunta es directa: ¿necesitan estos contratos ejecutarse dentro de una institución llamada "banco"? ¿O la licencia bancaria es un arreglo institucional que, habiendo funcionado durante siglos, podría no ser la única forma de organizar la intermediación financiera?
+
+
+La banca como institución ha mostrado una estabilidad considerable a lo largo del tiempo. Desde los banqueros florentinos del Renacimiento hasta los bancos globales del siglo XXI, la estructura fundamental —captar depósitos, otorgar créditos, gestionar el calce entre ambos— ha conservado elementos centrales comunes. La escala cambió, la tecnología cambió, la regulación cambió.
+
+
+En las últimas décadas han convergido condiciones técnicas, regulatorias y de mercado que permiten replicar esta función esencial fuera de la estructura institucional del banco. Como una alternativa estructurada y regulada cuya eficiencia comparativa es una cuestión empírica abierta.
+
+
+
+\section{2. La tesis de la síntesis bancaria}
+
+
+\subsection{2.1 Fundamento teórico: la perspectiva funcional}
+
+
+Desde la perspectiva funcional, las funciones financieras básicas preceden a las formas institucionales que las organizan. Transferir valor existía antes del primer banco. Prestar existía antes de la primera licencia. Robert Merton formalizó esta observación en lo que este artículo identifica como uno de los principales antecedentes teóricos de la síntesis bancaria: las \textbf{funciones} financieras son estables a lo largo del tiempo y entre países; las \textbf{instituciones} que las ejecutan cambian continuamente \parencite{merton1995,mertonbodie2005}. Las seis funciones básicas —sistema de pagos, movilización de ahorro, asignación de recursos, gestión de riesgos, provisión de información de precios y resolución de problemas de incentivos— no dependen de ninguna forma institucional particular. Lo que importa para el desarrollo económico es que estas funciones se cumplan eficientemente, no quién las cumpla \parencite{king1993,levine1997}.
+
+
+Desde esta perspectiva, la pregunta relevante no es si los bancos pueden ser reemplazados —eso sería plantear el problema en términos institucionales—, sino si las funciones que hoy realizan pueden ejecutarse mediante otras formas organizativas, y con qué grado de eficiencia comparativa.
+
+
+\subsection{2.2 Definición}
+
+
+La \textbf{síntesis bancaria} es la construcción de una estructura funcionalmente equivalente a un banco mediante la combinación de vehículos de inversión regulados que, en conjunto, replican la intermediación financiera —sin una licencia bancaria.
+
+
+El término es deliberado. En química, una síntesis combina elementos simples para crear un compuesto complejo. Aquí, los elementos son fondos mutuos\footnote{Fondos mutuos: vehículos de inversión abiertos, con liquidez de rescate diaria, regulados por la comisión de valores. Incluyen diversas categorías según su política de inversión: mercado monetario (del inglés \textit{money market}, deuda de corto plazo y alta liquidez), renta fija, renta variable, entre otros. En el contexto de la síntesis bancaria, los fondos mutuos de mercado monetario son los más relevantes como sustituto de depósitos.} (captación), fondos de inversión\footnote{Fondos de inversión: vehículos de inversión cerrados o semi-cerrados, con plazos definidos y menor liquidez que los fondos mutuos. Incluyen fondos de deuda privada (del inglés \textit{private debt}), capital privado (del inglés \textit{private equity}), inmobiliarios y de infraestructura. En el contexto de la síntesis bancaria, los fondos de inversión de deuda privada son los más relevantes como sustituto de crédito bancario.} (colocación), tecnológicas financieras\footnote{Del inglés \textit{fintech} (financial technology). Empresas que combinan tecnología y servicios financieros. En este artículo se traduce como "tecnológica financiera".} de pago (infraestructura transaccional) y plataformas de inversión (servicios). El compuesto es una estructura que, vista en conjunto, es funcionalmente indistinguible de un banco.
+
+
+La síntesis bancaria no ocurre al margen del sistema regulatorio. Al contrario: es \textbf{habilitada activamente por los reguladores} que abren sistemas de pago a actores no bancarios (Banco de Inglaterra desde 2017, BCE con TARGET2, Banco de la Reserva de Australia desde 2024), que mandatan la apertura de datos financieros (la Segunda Directiva de Servicios de Pago (PSD2) en Europa, finanzas abiertas en Brasil y Australia), y que crean marcos regulatorios específicos para nuevos actores (marco de licencias de pago en Singapur, Reino Unido y la Unión Europea; leyes de tecnología financiera en Latinoamérica). La síntesis bancaria es una evolución del sistema financiero que ocurre \textbf{dentro} del perímetro regulatorio, no fuera de él.
+
+
+\subsection{2.3 Distinciones conceptuales}
+
+
+La síntesis bancaria no es lo que parece a primera vista. Conviene distinguirla de dos conceptos con los que se confunde fácilmente:
+
+
+\textbf{De la desagregación/reagregación}: La literatura sobre tecnológicas financieras ha descrito cómo empresas emergentes\footnote{Del inglés \textit{startups}. Empresas emergentes de reciente creación, generalmente de base tecnológica.} primero fragmentaron los servicios bancarios (desagregación) y luego los recombinaron en paquetes digitales más completos (reagregación)\footnote{Del inglés \textit{unbundling} (desagregación) y \textit{rebundling} (reagregación). Términos acuñados por la industria para describir el proceso de fragmentación y posterior reconsolidación de servicios financieros.}. Pero este proceso opera sobre la \textbf{capa de servicios} y sigue dependiendo de la infraestructura bancaria subyacente. Una tecnológica financiera de pagos que usa por detrás la cuenta corriente de un banco no ha sintetizado nada; ha mejorado la interfaz.
+
+
+\textbf{De la intermediación financiera no bancaria}: Los reguladores —particularmente la Junta de Estabilidad Financiera (FSB)\footnote{Del inglés \textit{Financial Stability Board} (FSB). Junta de Estabilidad Financiera: organismo internacional que monitorea y emite recomendaciones sobre el sistema financiero global.} y el Fondo Monetario Internacional (FMI)— han documentado extensamente la intermediación financiera no bancaria (IFNB). Esta perspectiva se enfoca en el \textbf{riesgo sistémico}: cuánto de la intermediación ocurre fuera del perímetro regulatorio bancario y cuánto riesgo genera \parencite{pozsar2013,claessens2012}. La síntesis bancaria comparte la observación empírica —la intermediación está migrando— pero propone una lectura distinta: no solo como un fenómeno que genera riesgos sistémicos, sino también como una posible \textbf{transformación estructural} del sistema financiero impulsada por la tecnología, la regulación habilitadora y la competencia, cuyas implicancias para la eficiencia, la transparencia y la inclusión financiera dependen del diseño regulatorio y requieren evaluación empírica.
+
+
+\subsection{2.4 Antecedentes teóricos}
+
+
+La síntesis bancaria no nace en el vacío. Cuatro corrientes intelectuales convergen en su fundamento.
+
+
+¿Por qué existen los bancos? \textcite{diamond1983} propusieron una respuesta formal: mitigan un problema de liquidez al transformar activos ilíquidos en pasivos líquidos (depósitos retirables a demanda). \textcite{diamond1984} añadió que los bancos existen porque abordan el problema de monitoreo delegado: bajo los supuestos del modelo, resulta más eficiente que un intermediario monitoree al deudor en representación de múltiples depositantes, que cada depositante lo haga por su cuenta. \textcite{gorton1990} completaron el cuadro al mostrar que los bancos crean "títulos informativamente insensibles"\footnote{Del inglés \textit{informationally insensitive securities}. Títulos informativamente insensibles: instrumentos financieros cuyo valor no cambia con nueva información sobre los activos subyacentes, eliminando la necesidad de que el tenedor monitoree constantemente la calidad del emisor. Los depósitos bancarios son el ejemplo paradigmático.} —depósitos cuyo valor no fluctúa con la calidad de los activos subyacentes— generando confianza y liquidez. Estas tres funciones —transformación de liquidez, monitoreo delegado y creación de títulos informativamente insensibles— constituyen, según esta literatura, las funciones económicas centrales de un banco. La pregunta que se deriva de este análisis es: ¿pueden estas funciones ejecutarse fuera de un banco? Los fondos mutuos de mercado monetario crean títulos que comparten características de insensibilidad informativa (cuotas de valor estable). Los fondos de inversión de deuda privada realizan funciones comparables al monitoreo delegado de deudores. Y el diseño de plazos de los fondos gestiona la transformación de liquidez sin el descalce extremo de la banca tradicional.
+
+
+\textcite{corrigan1982}, en su ensayo "¿Son especiales los bancos?"\footnote{Referencia a Corrigan, E. G. (1982). "Are Banks Special?" Banco de la Reserva Federal de Minneapolis, Informe Anual. Ensayo fundacional que definió las tres características que hacen "especiales" a los bancos: acceso al sistema de pagos, seguro de depósitos y rol en la transmisión monetaria.}, definió tres características que hacen únicos a los bancos: acceso al sistema de pagos, seguro de depósitos y rol en la transmisión de la política monetaria. Puede argumentarse que estas tres características son, en gran medida, concesiones regulatorias más que propiedades intrínsecas de la intermediación financiera. Cuando los reguladores abren el sistema de pagos a no-bancos (como está ocurriendo globalmente), la primera característica deja de ser exclusiva. La síntesis bancaria es, en parte, la reducción gradual de algunas de las características exclusivas de la banca identificadas por Corrigan.
+
+
+Si los bancos existen por razones económicamente fundadas, ¿por qué cambiarían? La transformación del sistema financiero se inscribe en la dinámica de \textbf{destrucción creativa} descrita por \textcite{schumpeter1942}: nuevos actores introducen nuevos productos, nuevos métodos y nuevas formas organizativas que hacen parcialmente obsoletas las formas anteriores, preservando y mejorando las funciones económicas subyacentes. \textcite{king1993} encontraron evidencia empírica consistente con la proposición de que lo que importa para el desarrollo económico es que las funciones financieras se ejecuten eficientemente, no la forma institucional que las ejecuta. Desde esta perspectiva, la síntesis bancaria puede interpretarse como un resultado coherente con la innovación tecnológica aplicada a una industria cuyo costo unitario de intermediación se ha mantenido relativamente estable durante más de un siglo \parencite{philippon2015}.
+
+
+Hay un mecanismo que la síntesis no puede replicar —al menos no directamente. El Banco de Inglaterra publicó un artículo, "La creación de dinero en la economía moderna"\footnote{Referencia a McLeay, M., Radia, A. y Thomas, R. (2014). "Money creation in the modern economy". Banco de Inglaterra, Boletín Trimestral Q1 2014.}, que cuestionó una concepción extendida: los bancos no prestan dinero que ya tienen; crean dinero nuevo cada vez que otorgan un crédito \parencite{mcleay2014}. Este mecanismo —"los préstamos crean depósitos"— es exclusivo de los bancos. Cuando la intermediación migra a fondos de inversión, este mecanismo de creación de dinero se interrumpe. Las implicancias monetarias de esta interrupción son una de las preguntas abiertas centrales que plantea la síntesis bancaria. \textcite{mcmillan2014}, en \textit{The End of Banking}, argumentó que la revolución digital había hecho obsoleto el modelo bancario. Su propuesta de eliminar la creación de dinero por parte de los bancos fue considerada extrema, pero su diagnóstico anticipó varias de las tendencias documentadas posteriormente: la intermediación financiera estaba migrando fuera del balance bancario.
+
+
+Los datos disponibles son consistentes con el marco teórico descrito. La FSB ha monitoreado la intermediación financiera no bancaria desde 2011. Su informe más reciente \parencite{fsb2025a} documenta que el sector ya supera la mitad de los activos financieros globales y crece al doble de la velocidad del sector bancario. La medida estrecha —entidades que realizan intermediación crediticia— muestra una aceleración aún mayor \parencite{fsb2025b}.
+
+
+El Banco de Pagos Internacionales (BPI), en un estudio sobre los impulsores globales del crédito privado \parencite{bis2025}, identificó que este mercado crece impulsado tanto por factores de oferta (búsqueda de rendimiento por parte de inversionistas institucionales) como de demanda (empresas medianas con acceso limitado al crédito bancario o al mercado de bonos público). \textcite{buchak2018} documentaron empíricamente que este crecimiento no es solo cíclico: la regulación bancaria post-crisis (Basilea III) creó un incentivo estructural permanente para que la intermediación crediticia migre a actores no bancarios.
+
+
+El BPI, en su visión del futuro del sistema monetario \parencite{bis2023}, propuso explícitamente un marco donde los intermediarios no bancarios tienen un rol permanente y legítimo junto a bancos centrales y bancos comerciales —lo que es consistente con la idea de que la intermediación no bancaria podría constituir un componente permanente del sistema financiero.
+
+
+Intermediación no bancaria, tecnología financiera, cambios regulatorios, cambios en la conducta del consumidor: la literatura los ha estudiado por separado. Este artículo propone un \textbf{marco integrador} que aspira a explicar no solo qué está ocurriendo, sino hacia dónde podrían converger.
+
+
+
+\section{3. Anatomía de un banco}
+
+
+Para sintetizar un banco, primero hay que abrirlo. Y lo que se encuentra adentro se organiza en tres capas operativas, una capa tecnológica que las transforma, y una red de seguridad que las envuelve.
+
+
+La primera capa es la \textbf{infraestructura de mercado financiero}: los sistemas de pago, liquidación, custodia y registro que hacen posible la ejecución de operaciones financieras. La segunda es la \textbf{gestión de activos y pasivos}: la disciplina que orquesta el calce entre lo que el banco capta y lo que coloca, administrando las primas de riesgo inherentes a la intermediación. La tercera es la \textbf{capa de productos y servicios financieros}: los contratos que el banco ofrece —captación, colocación, derivados, información—, cuya sofisticación depende de las capacidades de la infraestructura, la estructura del balance y la regulación vigente. La infraestructura habilita. La gestión de activos y pasivos orquesta. Los productos instrumentan.
+
+
+Debajo de estas tres capas opera una \textbf{capa tecnológica emergente} —registros distribuidos, contratos inteligentes, tokenización— que no es una infraestructura de mercado en sí misma, sino la tecnología que está transformando cómo funcionan todas las demás. Y sobre todas ellas opera la \textbf{red de seguridad financiera} —garantía estatal de depósitos, prestamista de última instancia, regulación prudencial— que es exclusiva de la banca y constituye una de sus ventajas estructurales principales: simultáneamente un subsidio implícito (los depositantes aceptan tasas más bajas porque su dinero está "seguro") y un costo (la regulación prudencial impone requisitos de capital, liquidez y gobierno corporativo que elevan los costos operativos).
+
+
+Las tres capas comparten una propiedad que la sección anterior anticipó: toda operación financiera es un registro portador de valor. La infraestructura existe para crear, almacenar y transferir esos registros con seguridad. La gestión de activos y pasivos orquesta el calce temporal entre registros de distinta naturaleza. Y los productos definen el contenido de cada registro —quién tiene derecho a qué, bajo qué condiciones, en qué plazos. La historia de la infraestructura financiera es la historia de la mejora progresiva de esa tecnología de registro: de la partida doble de Pacioli (1494) a los depositarios centrales de valores, de los \textit{mainframe}s a los registros distribuidos programables. Cada salto transformó las propiedades de seguridad, inmutabilidad y accesibilidad de los registros —y cada cambio permitió la creación de nuevos tipos de instrumentos y operaciones financieras. La síntesis bancaria es posible hoy en una forma que no lo era hace treinta años porque la tecnología de registro ha evolucionado hasta un punto en que, en principio, permite distribuir las funciones de intermediación entre múltiples actores, aunque la preservación de coherencia, seguridad y trazabilidad requiere validación empírica adicional.
+
+
+Un banco es la integración vertical de estas tres capas dentro de una sola entidad regulada. \textcite{kashyap2002} argumentaron que esta integración no es accidental: existe una sinergia natural entre la captación de depósitos y la concesión de crédito, porque ambas actividades requieren mantener reservas de liquidez y los compromisos de crédito contingentes pueden financiarse con depósitos estables. Esta constituye una objeción teórica central a la síntesis bancaria, y este artículo la aborda directamente: si la sinergia existe, ¿pueden la especialización y la competencia compensar su pérdida?
+
+
+\subsection{3.1 La infraestructura de mercado financiero}
+
+
+Los bancos operan dentro —y dependen críticamente de— las infraestructuras de mercado financiero (IMF) definidas por el Comité de Pagos e Infraestructuras de Mercado del BPI y la Organización Internacional de Comisiones de Valores (IOSCO) en sus \textit{Principios para las Infraestructuras de Mercado Financiero} \parencite{cpmiiosco2012}. Estas infraestructuras se clasifican en cinco categorías:
+
+
+\subsubsection{3.1.1 Sistemas de pago}
+
+
+Los sistemas de pago transfieren fondos entre participantes. Se subdividen en sistemas de alto valor —los sistemas de liquidación bruta en tiempo real (LBTR), operados por bancos centrales, que liquidan cada transacción interbancaria de forma individual e inmediata— y sistemas de bajo valor —cámaras de compensación, redes de tarjetas y sistemas de transferencias electrónicas que procesan el volumen masivo de transacciones cotidianas. El acceso a los sistemas de alto valor ha sido históricamente exclusivo de los bancos, constituyendo una barrera de entrada importante a la intermediación financiera.
+
+
+\subsubsection{3.1.2 Depositarios centrales de valores (DCV)}
+
+
+Los DCV proveen cuentas de valores, custodia centralizada y servicios de registro de propiedad sobre instrumentos financieros. Son la infraestructura que permite que bonos, acciones y otros valores existan en forma desmaterializada y puedan transferirse electrónicamente. Los bancos interactúan con los DCV tanto como custodios de valores de sus clientes como en la gestión de sus propias carteras de inversión.
+
+
+\subsubsection{3.1.3 Sistemas de liquidación de valores}
+
+
+Estos sistemas permiten que las transferencias de valores se ejecuten y liquiden conforme a reglas multilaterales predefinidas, típicamente bajo el principio de entrega contra pago (EcP): el valor se transfiere simultáneamente al pago, eliminando el riesgo de que una parte cumpla sin que la otra lo haga. Los bancos dependen de estos sistemas para liquidar sus operaciones en el mercado de capitales.
+
+
+\subsubsection{3.1.4 Entidades de contrapartida central (ECC)}
+
+
+Las ECC se interponen entre las contrapartes de una transacción financiera, convirtiéndose en el comprador de todo vendedor y el vendedor de todo comprador. Gestionan el riesgo de crédito de contraparte mediante márgenes, fondos de garantía y procedimientos de gestión de incumplimiento. Su rol es especialmente relevante en los mercados de derivados, donde los bancos son participantes activos.
+
+
+\subsubsection{3.1.5 Repositorios de transacciones (TR)}
+
+
+Los TR mantienen registros electrónicos centralizados de datos de transacciones, particularmente en mercados de derivados extrabursátiles (OTC). Tras la crisis de 2008, los reguladores del G-20 mandataron el reporte obligatorio a TR para aumentar la transparencia y permitir la supervisión de riesgos sistémicos.
+
+
+\subsection{3.2 La capa tecnológica emergente}
+
+
+Las cinco infraestructuras descritas arriba —sistemas de pago, depositarios, sistemas de liquidación, entidades de contrapartida central y repositorios de transacciones— constituyen la plomería del sistema financiero tal como existe hoy. Pero debajo de esa plomería está emergiendo una capa tecnológica que podría transformarla. El BPI ha analizado extensamente el rol de los criptoactivos y la tecnología de registros distribuidos (DLT), diferenciando tres fenómenos con implicancias muy distintas \parencite{bis2022,bis2023}:
+
+
+\textbf{Criptoactivos sin respaldo} (como las criptomonedas descentralizadas): El BPI \parencite{bis2022} concluyó que presentan deficiencias estructurales como medio de pago y reserva de valor —alta volatilidad, escalabilidad limitada, consumo energético elevado y ausencia de ancla nominal—, por lo que no constituyen una base viable para el sistema monetario. Su rol en la síntesis bancaria es marginal.
+
+
+\textbf{Criptomonedas estables} (\textit{stablecoins})\footnote{Del inglés \textit{stablecoins}. Criptomonedas estables: tokens digitales diseñados para mantener un valor estable respecto a una moneda fiduciaria (típicamente el dólar estadounidense), respaldados por reservas de activos líquidos como depósitos bancarios, bonos soberanos de corto plazo o una combinación de ambos.}: Intentan importar la credibilidad de las monedas fiduciarias vinculando su valor a activos de reserva (típicamente depósitos bancarios o bonos soberanos de corto plazo). El BPI las considera una solución parcial e inherentemente frágil: dependen de la confianza en el emisor y en la calidad de las reservas, y han experimentado episodios de pérdida de paridad que confirman su vulnerabilidad. Sin embargo, su uso como mecanismo de liquidación en plataformas de activos digitales crece.
+
+
+\textbf{Tokenización de activos reales}: Es donde el BPI identifica un potencial transformador significativo. La tokenización —representar activos financieros tradicionales (bonos, depósitos, cuotas de fondos) como tokens digitales en registros programables— permite la composibilidad (combinar múltiples operaciones en una sola transacción atómica), la liquidación simultánea y la programabilidad mediante contratos inteligentes. El BPI \parencite{bis2023} propuso el concepto de \textbf{registro unificado} (\textit{unified ledger}): una infraestructura programable compartida donde coexisten depósitos tokenizados, moneda digital de banco central (CBDC) y activos tokenizados, bajo la gobernanza de los bancos centrales. Esta visión no reemplaza las IMF existentes sino que las complementa, añadiendo una capa de programabilidad y eficiencia.
+
+
+Para la síntesis bancaria, la tokenización es relevante porque podría reducir las fricciones entre los componentes de la síntesis: un fondo mutuo tokenizado puede liquidarse instantáneamente contra un crédito tokenizado, sin depender de las múltiples capas de intermediación que hoy requieren las IMF tradicionales. Podría constituir una infraestructura adecuada para un sistema financiero donde la intermediación está distribuida entre múltiples actores especializados.
+
+
+\subsection{3.3 Estructura de gestión de activos y pasivos}
+
+
+La gestión de activos y pasivos\footnote{Del inglés \textit{ALM} (Asset and Liability Management). Gestión de activos y pasivos: disciplina que gestiona el calce entre lo que un banco capta (pasivos) y lo que coloca (activos), optimizando rentabilidad y controlando los riesgos inherentes a la intermediación —inflación, crédito, liquidez, plazo y, en operaciones multimoneda, tipo de cambio.} opera sobre la infraestructura descrita arriba y determina —junto con ella— las capacidades del banco para estructurar, intermediar y distribuir productos financieros. Gestiona el calce entre lo que un banco capta (sus pasivos) y lo que coloca (sus activos), optimizando la rentabilidad y controlando los riesgos inherentes a ese calce. Funciona como un componente central de la operación del banco.
+
+
+¿Qué gestiona, exactamente? La sección 1 argumentó que el riesgo es hijo del tiempo. Aquí la proposición se precisa: en una economía con una sola moneda, toda tasa de interés se descompone en una tasa libre de riesgo más cuatro primas que compensan fuentes de incertidumbre específicas —\textbf{inflación} (la erosión del poder adquisitivo entre hoy y el vencimiento), \textbf{crédito} (la probabilidad de que el deudor no pague), \textbf{liquidez} (el costo de convertir el activo en efectivo antes del vencimiento) y \textbf{plazo} (la exposición a movimientos de tasas durante la vida del instrumento)\footnote{Del inglés \textit{risk premia}. Primas de riesgo: compensaciones que el inversionista exige por asumir fuentes específicas de incertidumbre. Las cuatro primas fundamentales en una economía con una sola moneda son: \textit{inflation premium} (prima inflacionaria), \textit{default premium} o \textit{credit spread} (prima de crédito), \textit{liquidity premium} (prima de liquidez) y \textit{maturity premium} o \textit{term premium} (prima de plazo). En operaciones multimoneda se añade la \textit{currency risk premium} (prima cambiaria).}. En una economía abierta, con múltiples monedas, se añade la prima \textbf{cambiaria} —la incertidumbre sobre el valor relativo de las monedas entre el momento de la inversión y el del cobro. Los derivados financieros existen precisamente para transferir, aislar y redistribuir estas primas entre participantes con distintos apetitos de riesgo.
+
+
+El banco vive en la intersección de todas estas primas. Capta a tasas bajas (depósitos con prima de crédito mínima, plazo corto, alta liquidez), coloca a tasas altas (créditos con prima de crédito elevada, plazo largo, baja liquidez), y captura el diferencial entre ambos lados. La gestión de activos y pasivos consiste en administrar simultáneamente las cinco primas —o seis, si opera en múltiples monedas— sin que ninguna de ellas destruya la solvencia del banco.
+
+
+\subsubsection{3.3.1 El lado de los pasivos: las captaciones}
+
+
+Todo banco empieza por una pregunta fundamental: ¿de dónde viene el dinero? Sus fuentes de fondeo, ordenadas de menor a mayor riesgo para la institución, revelan una jerarquía de dependencias:
+
+
+\textbf{Facilidad permanente de liquidez (FPL) y facilidad de liquidez intradía (FLI)}: La fuente de fondeo con menor prima de riesgo. La FPL permite a los bancos obtener liquidez del banco central a un día, presentando colateral elegible, a una tasa conocida (típicamente la tasa de política monetaria más un diferencial). La FLI proporciona liquidez dentro del mismo día operativo para cubrir descalces transitorios en el sistema de pagos, sin costo de interés mientras se devuelva antes del cierre. Ambas facilidades son exclusivas de entidades con licencia bancaria y constituyen una ventaja estructural importante: acceso al prestamista de última instancia.
+
+
+\textbf{Líneas interbancarias}: Fondeo de cortísimo plazo (\textit{overnight} o pocos días) entre bancos. Permite gestionar necesidades puntuales de liquidez más allá de las facilidades del banco central. Su tasa refleja directamente la tasa de política monetaria y las condiciones de liquidez del sistema.
+
+
+\textbf{Depósitos vista}: La fuente de fondeo de menor costo en condiciones normales. El cliente deposita dinero que puede retirar en cualquier momento; el banco paga poco o nada de interés. En la práctica, existe un \textit{core} de depósitos vista relativamente estable —no todos retiran al mismo tiempo—, lo que permite financiar activos de mayor plazo. El riesgo es la volatilidad: en condiciones de estrés, los retiros pueden acelerarse.
+
+
+\textbf{Depósitos a plazo}: Fondeo de mayor costo pero mayor previsibilidad. El cliente se compromete a mantener el dinero por un período (30, 90, 180, 360 días) a cambio de una tasa de interés. El banco obtiene certeza de plazo, lo que le permite calzar mejor con sus créditos. Es la fuente de fondeo "estructural" de la banca.
+
+
+\textbf{Emisiones (letras y bonos)}: Instrumentos de deuda emitidos por el banco y transados en el mercado de valores. Las letras de crédito financian créditos hipotecarios con plazos largos (hasta 30 años); los bonos bancarios captan fondeo de mediano y largo plazo (2, 5, 10 años o más). Su costo de fondeo es superior al de los depósitos, pero ofrecen calce de plazo con activos de largo aliento. Su riesgo radica en la dependencia de las condiciones de mercado para su colocación y renovación.
+
+
+\textbf{Capital y reservas}: No es fondeo en el sentido estricto —no se presta ni se devuelve—, sino el colchón permanente que absorbe pérdidas. Los requerimientos de capital (Basilea III/IV) establecen cuánto capital debe mantener un banco en proporción a sus activos ponderados por riesgo. Es el recurso de mayor riesgo para el accionista: si las pérdidas del banco superan las reservas, el capital se erosiona directamente.
+
+
+\subsubsection{3.3.2 El lado de los activos: las colocaciones}
+
+
+Si el lado de los pasivos responde a "¿de dónde viene el dinero?", el lado de los activos responde a "¿a dónde va?". Los activos de un banco se ordenan de menor a mayor riesgo:
+
+
+\textbf{Facilidad permanente de depósito (FPD)}: El activo con menor prima de riesgo del balance. Los bancos depositan excedentes de liquidez en el banco central a un día, a una tasa conocida (típicamente la tasa de política monetaria menos un diferencial). Es riesgo soberano puro, con liquidez inmediata. Se utiliza cuando el banco tiene más liquidez de la que puede colocar eficientemente.
+
+
+\textbf{Emisiones libres de riesgo}: Comprende tres subcategorías: (i) el \textbf{encaje}, la fracción obligatoria de los depósitos que el banco debe mantener como reserva en cuenta en el banco central —no genera rentabilidad significativa pero es requisito regulatorio—; (ii) \textbf{instrumentos del banco central}, como bonos y pagarés emitidos por la autoridad monetaria; y (iii) \textbf{bonos soberanos}, emitidos por el gobierno. Todos comparten la característica de riesgo crediticio nulo o mínimo y alta liquidez. Son los activos que el banco mantiene para cumplir requerimientos de liquidez regulatoria (LCR) y como colchón ante escenarios de estrés.
+
+
+\textbf{Emisiones bancarias y de empresas}: Bonos y papeles comerciales emitidos por otros bancos y por empresas. Ofrecen mayor rentabilidad que las emisiones soberanas, pero introducen riesgo de crédito del emisor y menor liquidez. Se utilizan para diversificar la cartera de inversiones y optimizar el rendimiento del portafolio de liquidez.
+
+
+\textbf{Créditos titulizados}: Créditos (hipotecarios, automotrices, comerciales) que han sido empaquetados en vehículos de titulización\footnote{Del inglés \textit{securitization}. Titulización: proceso de convertir activos financieros (como créditos) en valores transables en el mercado de capitales.} y se mantienen en el balance del banco como inversión. Ofrecen diversificación y, en los tramos preferentes, un perfil de riesgo moderado respaldado por garantías reales. Su riesgo principal es la valoración de los activos subyacentes y la liquidez del mercado secundario.
+
+
+\textbf{Créditos de consumo}: Préstamos personales, financiamiento con tarjeta de crédito, líneas de crédito rotativas, crédito automotriz. Es la categoría de mayor riesgo: alto margen (tasas de interés elevadas) pero sin garantía real en la mayoría de los casos (excepto el automotriz). Plazos cortos a medios (6 meses a 7 años). Es donde se concentra la mayor rentabilidad del banco, pero también donde se materializan las mayores pérdidas crediticias.
+
+
+\subsubsection{3.3.3 La gestión del calce: transformación de plazos y liquidez}
+
+
+Detrás de la gestión del calce hay un modelo que integra a todos los participantes de un banco y extrae su comportamiento en conjunto. El principio es análogo al de la mecánica estadística: predecir la trayectoria de un átomo individual es imposible, pero predecir las propiedades macroscópicas de un gas —presión, temperatura— a partir del comportamiento estadístico de millones de átomos es posible y confiable. En la banca, predecir si un depositante retirará su dinero mañana es imposible, pero predecir cómo se comportarán millones de depositantes en agregado es estadísticamente tratable. De esa previsibilidad del conjunto nace la posibilidad misma de la reserva fraccionaria: el orfebre del siglo XVII descubrió empíricamente lo que la ley de los grandes números \parencite{bernoulli1713} formalizaría después. \textcite{diamond1983} modelaron precisamente este mecanismo: las necesidades de liquidez individuales son aleatorias, pero el banco puede predecir —y servir— el agregado.
+
+
+Esa previsibilidad estadística habilita una de las funciones centrales —y de mayor riesgo— de un banco: la \textbf{transformación de plazos}. Tomar pasivos de corto plazo (depósitos que pueden retirarse mañana) y convertirlos en activos de largo plazo (créditos hipotecarios a 30 años). Esta transformación puede generar beneficios económicos —permite que existan créditos de largo plazo que ningún depositante individual estaría dispuesto a financiar directamente— al costo de la fragilidad que se analiza a continuación.
+
+
+Pero el modelo tiene un punto de quiebre. Cuando el pánico correlaciona las decisiones individuales —todos quieren retirar al mismo tiempo—, el conjunto deja de comportarse como conjunto y se comporta como un solo individuo. Las correlaciones saltan a uno. La previsibilidad estadística colapsa. Esto es una \textbf{corrida bancaria} —el riesgo existencial que ha definido la historia de la banca desde sus orígenes. \textcite{goldstein2005} formalizaron esta dinámica: cuando la calidad percibida de los activos cae por debajo de un umbral, la decisión racional individual de retirar se vuelve la decisión racional de todos simultáneamente, y el equilibrio colapsa de forma discontinua.
+
+
+Para gestionar este riesgo, el banco utiliza:
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item \textbf{Calce de plazos}: Emparejar los vencimientos de activos y pasivos lo más posible.
+  \item \textbf{Reservas de liquidez}: Mantener activos altamente líquidos (bonos soberanos, encaje) que puedan venderse rápidamente.
+  \item \textbf{Acceso al interbancario}: Obtener fondeo de emergencia de otros bancos.
+  \item \textbf{Ventanilla del banco central}: El último recurso.
+  \item \textbf{Instrumentos de cobertura}: Derivados financieros (permutas de tasa de interés\footnote{Del inglés \textit{interest rate swaps}. Permutas de tasa de interés: contratos derivados donde dos partes intercambian flujos de interés (típicamente tasa fija por tasa variable) para gestionar riesgos de tasa.}, contratos a futuro) para mitigar riesgos de tasa y tipo de cambio.
+\end{itemize}
+
+La regulación de Basilea formaliza estos requisitos con indicadores como el ratio de cobertura de liquidez (LCR) y el ratio de financiamiento estable neto (NSFR) \parencite{bcbs2010}, que obligan a los bancos a mantener colchones mínimos de liquidez y fondeo estable.
+
+
+\subsection{3.4 La capa de productos y servicios financieros}
+
+
+Lo que un cliente ve cuando entra a un banco —o abre su aplicación— no es ni la infraestructura ni la estructura de balance. Ve productos: una cuenta corriente, un crédito hipotecario, un seguro de auto. Estos productos, construidos sobre la infraestructura y la estructura de gestión de activos y pasivos, se clasifican en cuatro categorías fundamentales:
+
+
+\subsubsection{3.4.1 Productos de captación}
+
+
+Los productos de captación son la interfaz entre el banco y sus fuentes de fondeo minorista e institucional:
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item \textbf{Cuentas corrientes y cuentas vista}: Relación transaccional cotidiana; el cliente deposita, retira y paga.
+  \item \textbf{Depósitos a plazo y cuentas de ahorro}: Productos de ahorro remunerado con distintos grados de liquidez y rendimiento.
+  \item \textbf{Fondos mutuos propios}: Administrados por la administradora general de fondos (AGF) del banco, permiten canalizar el ahorro hacia instrumentos de mercado.
+\end{itemize}
+
+\subsubsection{3.4.2 Productos de colocación}
+
+
+Los productos de colocación son la interfaz entre el banco y sus deudores:
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item \textbf{Créditos de consumo}: Préstamos personales, tarjetas de crédito, líneas rotativas.
+  \item \textbf{Créditos con garantía real}: Hipotecarios, automotrices, prendarios.
+  \item \textbf{Créditos comerciales y corporativos}: Líneas de capital de trabajo, financiamiento de proyectos, créditos sindicados.
+  \item \textbf{Avales y garantías}: Compromisos contingentes donde el banco asume riesgo crediticio sin desembolso inmediato.
+\end{itemize}
+
+\subsubsection{3.4.3 Productos de información}
+
+
+El banco acumula y procesa información financiera, lo que genera una ventaja competitiva y una línea de productos en sí misma:
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item \textbf{Historial crediticio}: Registro del comportamiento financiero de clientes, utilizado tanto internamente (evaluación de riesgo) como externamente (certificaciones para terceros).
+  \item \textbf{Certificaciones financieras}: Comprobantes de renta, certificados de deuda, estados de cuenta auditados.
+  \item \textbf{Custodia de valores}: Resguardo y administración de instrumentos financieros por cuenta de clientes.
+  \item \textbf{Asesoría financiera}: Banca privada, gestión patrimonial, planificación tributaria.
+\end{itemize}
+
+\subsubsection{3.4.4 Productos derivados}
+
+
+Los derivados financieros permiten transferir y gestionar riesgos específicos. Se clasifican en cuatro instrumentos fundamentales:
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item \textbf{Futuros}: Contratos estandarizados, transados en bolsa, que obligan a comprar o vender un activo a un precio y fecha predeterminados. Se utilizan para cobertura de materias primas, tasas y monedas.
+  \item \textbf{Forwards}: Contratos a medida entre dos partes (\textit{over-the-counter}) con la misma lógica que los futuros pero sin estandarización ni cámara de compensación. El forward de tipo de cambio es uno de los productos más utilizados por empresas exportadoras e importadoras.
+  \item \textbf{Swaps}: Permutas de flujos financieros entre dos partes. El swap de tasa de interés\footnote{Del inglés \textit{interest rate swaps}. Permutas de tasa de interés: contratos derivados donde dos partes intercambian flujos de interés (típicamente tasa fija por tasa variable) para gestionar riesgos de tasa.} (intercambiar tasa fija por tasa variable) es el derivado más transado del mundo por volumen nocional. Los swaps de moneda permiten gestionar exposiciones cambiarias de largo plazo.
+  \item \textbf{Opciones}: Contratos que otorgan el \textbf{derecho, pero no la obligación}, de comprar (opción de compra) o vender (opción de venta) un activo a un precio determinado. A cambio de este derecho, el comprador paga una prima al vendedor. Las opciones son, conceptualmente, el instrumento financiero más general: un seguro es económicamente equivalente a una opción de venta —el asegurado paga una prima periódica y, si ocurre el evento adverso (el "subyacente" cruza el "precio de ejercicio"), recibe un pago. Los seguros de vida, hogar, auto y desempleo que los bancos distribuyen a través de alianzas con aseguradoras son, en su estructura económica, opciones sobre eventos contingentes.
+\end{itemize}
+
+\subsubsection{3.4.5 La universalidad de la tokenización}
+
+
+Los cuatro tipos de productos descritos —captación, colocación, información y derivados— comparten una propiedad fundamental: todos son contratos financieros y, como tales, todos son susceptibles de tokenización. La representación de un contrato financiero como un token digital en un registro programable no altera su naturaleza económica, pero transforma su operativa: permite la ejecución automática mediante contratos inteligentes, la composibilidad (combinar múltiples contratos en una sola transacción atómica), la liquidación instantánea y la divisibilidad arbitraria.
+
+
+Un depósito tokenizado sigue siendo una obligación del emisor con el depositante. Un crédito tokenizado sigue siendo un contrato de deuda con calendario de pagos e intereses. Un contrato de futuros tokenizado sigue obligando a las partes a intercambiar un activo a un precio y fecha determinados. Una opción tokenizada —incluido un seguro, que como se estableció es económicamente una opción— sigue otorgando un derecho contingente a cambio de una prima. Lo que cambia es la infraestructura de ejecución: del procesamiento manual y los ciclos de liquidación de días, a una ejecución potencialmente programática y de liquidación acelerada.
+
+
+Esta universalidad tiene una implicancia directa para la síntesis bancaria: si cada producto financiero puede representarse como un token programable, entonces la síntesis podría ejecutar las funciones bancarias sobre una infraestructura digital, donde los componentes —fondos tokenizados de captación, créditos tokenizados, derivados tokenizados— podrían interoperar directamente, reduciendo las capas de intermediación que hoy caracterizan al sistema financiero vigente \parencite{bis2023}. Este artículo argumenta que la tokenización no es una característica adicional de la síntesis, sino la infraestructura que podría hacerla viable a escala.
+
+
+
+\section{4. El mapa de la síntesis: función por función}
+
+
+La sección anterior abrió el banco. Esta examina cómo distintos actores no bancarios replican funciones bancarias específicas.
+
+
+\subsection{4.1 Síntesis de los pasivos (fondeo)}
+
+
+\subsubsection{4.1.1 Fondos mutuos como sustituto de depósitos}
+
+
+Los fondos mutuos de mercado monetario acumulan a nivel global un volumen equivalente a una fracción significativa del total de depósitos del sistema bancario\footnote{Investment Company Institute (ICI), \textit{Weekly Money Market Mutual Fund Assets}, semana terminada el 18 de febrero de 2026. El ICI publica datos semanales de activos de fondos mutuos de mercado monetario en Estados Unidos. Fuente: \url{https://www.ici.org/research/stats/mmf}} \footnote{Crane Data, \textit{Money Fund Intelligence International}, 12 de febrero de 2026. Los fondos mutuos de mercado monetario europeos y extraterritoriales se denominan mayoritariamente en dólares, euros y libras esterlinas.}. Representan una fuente de fondeo alternativa cuyo volumen ha alcanzado proporciones que algunos reguladores consideran de relevancia sistémica.
+
+
+¿Qué son estos fondos? Un instrumento que comparte varias características funcionales con los depósitos bancarios. Invierten en instrumentos de deuda de corto plazo y alta calidad (bonos soberanos de corto plazo, papeles comerciales, depósitos interbancarios) y tienden a ofrecer al inversionista una rentabilidad superior a la de una cuenta de ahorro bancaria, con liquidez de rescate típicamente en un día hábil. La participación se reparte entre inversionistas institucionales e individuales, lo que sugiere que el fenómeno no se limita a un segmento.
+
+
+Pero hay una diferencia fundamental con un depósito bancario: el fondo mutuo \textbf{no es un pasivo del administrador}. Es un patrimonio autónomo administrado por una gestora de fondos. Si el administrador quiebra, los activos del fondo no se ven afectados (están segregados). Pero si los activos del fondo pierden valor, el inversionista pierde —no hay garantía estatal.
+
+
+Un precedente frecuentemente citado es el colapso del Reserve Primary Fund en septiembre de 2008, que "rompió el dólar"\footnote{Del inglés \textit{break the buck}. Expresión utilizada cuando el valor cuota de un fondo mutuo de mercado monetario cae por debajo de la paridad (el valor nominal por cuota en su moneda base), lo que indica una pérdida de capital para los inversionistas.} —su valor cuota cayó por debajo de la paridad por primera vez en la historia— debido a su exposición a papel comercial de Lehman Brothers. Este episodio provocó una corrida masiva sobre los fondos mutuos de mercado monetario y llevó a la Reserva Federal a intervenir con garantías temporales. Este episodio ilustra que los fondos mutuos, pese a su perfil de bajo riesgo percibido, no cuentan con garantía estatal de depósitos.
+
+
+\subsubsection{4.1.2 Cuentas remuneradas de tecnológicas financieras}
+
+
+Un fenómeno más reciente es la aparición de cuentas remuneradas ofrecidas por tecnológicas financieras que, en la práctica, funcionan como depósitos pero que técnicamente son inversiones en fondos.
+
+
+El mecanismo es sutil pero importante: el usuario deposita dinero en su cuenta de la tecnológica financiera. Ese dinero, con consentimiento del usuario, se invierte automáticamente en un fondo mutuo de mercado monetario o de renta fija de corto plazo administrado por una AGF aliada. El usuario ve un saldo que crece diariamente, puede gastar ese saldo con una tarjeta o transferirlo, y percibe la experiencia como la de una cuenta bancaria remunerada. Pero legalmente, posee cuotas de un fondo mutuo.
+
+
+Este modelo se ha replicado en Latinoamérica, Europa y Estados Unidos a través de billeteras digitales y neobancos que ofrecen cuentas remuneradas respaldadas por fondos. La adopción ha crecido en múltiples jurisdicciones.
+
+
+Estos productos plantean preguntas regulatorias abiertas: ¿son depósitos o inversiones? ¿Deben regularse como servicios bancarios o como distribución de fondos? ¿Deben contabilizarse en los agregados monetarios? Estas preguntas aún no tienen respuestas uniformes a nivel global.
+
+
+\subsubsection{4.1.3 Emisión de deuda directa por actores no bancarios}
+
+
+Algunas tecnológicas financieras han dado un paso adicional: emitir deuda directamente en el mercado de capitales para financiar sus operaciones de crédito. Neobancos en Latinoamérica y plataformas de crédito en Estados Unidos han emitido bonos corporativos para financiar sus carteras, pasando de depender de fondeo de terceros a construir sus propias estructuras de pasivos —aunque varias de ellas terminaron obteniendo licencias bancarias para acceder a depósitos como fuente de fondeo estable.
+
+
+\subsection{4.2 Síntesis de los activos (colocaciones)}
+
+
+\subsubsection{4.2.1 Fondos de inversión como sustituto de crédito bancario}
+
+
+Estos fondos realizan una \textbf{función económica comparable} a la del crédito bancario: evalúan el riesgo de un deudor, le otorgan financiamiento, cobran intereses y gestionan la cobranza. La diferencia es que lo hacen fuera del balance de un banco, sin crear dinero nuevo, y sin los requerimientos de capital de Basilea.
+
+
+La escala del fenómeno es consistente con esta observación. El mercado global de crédito privado ha crecido sostenidamente, con una aceleración notable en el despliegue de capital en los últimos años \parencite{aima2025}. Norteamérica lidera, seguida de Europa. Los fondos captan capital de inversionistas institucionales (fondos de pensiones, aseguradoras, oficinas familiares\footnote{Del inglés \textit{family office}. Oficina familiar: entidad que gestiona el patrimonio financiero de una o varias familias de alto patrimonio.}, fondos de fondos) y lo despliegan como créditos a empresas medianas con acceso limitado al crédito bancario o al mercado de bonos público. El crédito corporativo concentra la mayor parte de las inversiones, con predominio de deuda preferente\footnote{Del inglés \textit{senior debt}. Deuda preferente: créditos que tienen prioridad de cobro sobre otros acreedores en caso de incumplimiento del deudor.}.
+
+
+Las tasas de impago se mantienen consistentes con la experiencia histórica para portafolios de calidad crediticia similar \parencite{generali2025}. El mercado secundario de deuda privada también se expande, duplicando su volumen entre 2024 y 2025\footnote{Evercore, \textit{2025 Credit Secondary Market Survey}, enero de 2026. Reporta un crecimiento significativo del volumen de transacciones en el mercado secundario de crédito privado. Fuente: Evercore Private Capital Advisory.}, lo que indica una maduración progresiva del ecosistema.
+
+
+\subsubsection{4.2.2 Plataformas de crédito directo}
+
+
+Las plataformas de préstamos entre pares\footnote{Del inglés \textit{P2P} (Peer-to-Peer). Préstamos entre pares: modelo donde individuos prestan directamente a otros individuos a través de una plataforma digital.} —donde individuos prestan directamente a otros individuos a través de una plataforma digital— representaron el primer intento masivo de desintermediar el crédito bancario.
+
+
+Sin embargo, la experiencia demostró las limitaciones del modelo puro. Las principales plataformas abandonaron sus modelos de préstamos entre pares y pasaron a depender de fuentes institucionales de capital. Algunas optaron por adquirir bancos pequeños para acceder a depósitos como fuente de fondeo estable.
+
+
+La experiencia sugiere que \textbf{el fondeo estable es un factor determinante}. Las plataformas que intentaron sintetizar solo el lado de los activos (el crédito), sin resolver el lado de los pasivos (el fondeo estable), terminaron regresando a la estructura bancaria. La síntesis bancaria completa requiere resolver ambos lados de la ecuación.
+
+
+Un modelo alternativo con mayor tracción comercial es el modelo de "compra ahora, paga después"\footnote{Del inglés \textit{BNPL} (Buy Now, Pay Later). Modelo de crédito de consumo que permite comprar un producto y pagarlo en cuotas sin tarjeta de crédito.}: crédito de consumo embebido directamente en el punto de venta, sin solicitud formal, sin tarjeta de crédito, financiado por la propia plataforma de comercio electrónico o por fondos de inversión especializados. Múltiples plataformas globales han adoptado este modelo en Europa, Estados Unidos y Latinoamérica. La experiencia sugiere que el crédito de consumo de bajo monto puede originarse y gestionarse fuera de un banco en condiciones competitivas.
+
+
+\subsubsection{4.2.3 Titulización como puente entre fondeo y colocación}
+
+
+La titulización\footnote{Del inglés \textit{securitization}. Titulización: proceso de convertir activos financieros (como créditos) en valores transables en el mercado de capitales.} —el proceso de convertir créditos en valores transables— es el mecanismo que permite separar completamente al originador del crédito de quien lo fondea. Un originador (banco, tecnológica financiera, empresa de crédito) otorga préstamos, los empaqueta en un vehículo especial, y vende participaciones de ese vehículo a inversionistas del mercado de capitales.
+
+
+La titulización representa una fracción significativa de la medida estrecha de intermediación no bancaria y continúa creciendo \parencite{fsb2025a}.
+
+
+Para la síntesis bancaria, la titulización cumple una función central: permite que quien origina el crédito (la tecnológica financiera, la plataforma) no necesite fondearlo permanentemente en su propio balance. Origina, empaqueta, vende, y libera capital para originar más. Es la "tubería" que conecta los activos sintetizados con los pasivos sintetizados.
+
+
+\subsection{4.3 Síntesis de la gestión del calce}
+
+
+En un banco, la gestión del calce de plazos es una función centralizada: el departamento de gestión de activos y pasivos monitorea continuamente la correspondencia entre los vencimientos de activos y pasivos, ajustando la composición del balance en tiempo real.
+
+
+En la síntesis bancaria, ¿quién cumple esta función?
+
+
+Nadie —y todos. \textbf{El mercado de capitales cumple una función análoga a la del departamento de gestión de activos y pasivos del banco}. Cada fondo de inversión está diseñado con un calce interno: el plazo del fondo coincide aproximadamente con el plazo de los créditos que financia. Un fondo de inversión de deuda privada a 5 años financia créditos empresariales a 3-5 años. Un fondo mutuo de mercado monetario invierte en instrumentos de corto plazo y ofrece rescate de corto plazo.
+
+
+Una diferencia estructural relevante es que \textbf{no hay transformación de plazos} en el sentido bancario clásico. El fondo no toma pasivos de corto plazo para financiar activos de largo plazo, como sí lo hace un banco. Por lo tanto, no existe el riesgo de corrida bancaria clásica —donde los depositantes exigen su dinero y el banco no puede liquidar sus créditos a tiempo.
+
+
+Pero también tiene una desventaja: \textbf{menor capacidad de crear liquidez}. La transformación de plazos que hace un banco —permitir que existan créditos hipotecarios a 30 años financiados con depósitos que pueden retirarse mañana— es un servicio económico valioso. Crea liquidez para los depositantes y financiamiento de largo plazo para los deudores simultáneamente. La síntesis bancaria no puede replicar esta transformación sin asumir los mismos riesgos que busca evitar.
+
+
+\subsection{4.4 Síntesis de los servicios}
+
+
+La capa de servicios es donde los actores no bancarios han alcanzado una presencia considerable en pagos, inversiones y distribución de seguros:
+
+
+\textbf{Pagos}: Las billeteras digitales y tarjetas prepago de tecnológicas financieras replican los principales servicios transaccionales de un banco para el usuario final, a una escala significativa en múltiples jurisdicciones.
+
+
+\textbf{Inversiones}: Las AGF independientes y las plataformas de inversión ofrecen productos que compiten directamente con los fondos mutuos de los bancos, en algunos casos con menores costos de administración.
+
+
+\textbf{Seguros}: El modelo de "seguros embebidos"\footnote{Del inglés \textit{embedded insurance}. Seguros embebidos: productos de seguro integrados directamente en la compra de otro producto o servicio financiero.} —seguros integrados directamente en productos financieros o transacciones— permite a tecnológicas financieras ofrecer protección sin ser aseguradoras, a través de alianzas con compañías de seguros.
+
+
+\textbf{Información}: Las finanzas abiertas\footnote{Del inglés \textit{Open Finance}. Finanzas abiertas: marco regulatorio que permite a los consumidores compartir sus datos financieros entre instituciones con su consentimiento.} buscan reducir la ventaja informacional de los bancos al permitir que los consumidores compartan sus datos financieros con cualquier proveedor autorizado. El Reino Unido fue pionero con su regulación de Banca Abierta desde 2018, seguido por la Unión Europea (PSD2), Brasil y Australia.
+
+
+\subsection{4.5 Síntesis de la infraestructura}
+
+
+La infraestructura de pagos de alto valor ha permanecido en gran medida restringida a la banca, aunque algunos reguladores han comenzado a ampliar el acceso:
+
+
+\textbf{Reino Unido}: Desde 2017, entidades no bancarias pueden acceder directamente al sistema de pagos Faster Payments y a los servicios de liquidación del Banco de Inglaterra, sin necesidad de usar un banco como intermediario.
+
+
+\textbf{Unión Europea}: El Banco Central Europeo ha abierto gradualmente el acceso a TARGET2 (su sistema de liquidación de alto valor) a instituciones de dinero electrónico y servicios de pago bajo la directiva PSD2.
+
+
+\textbf{Australia}: El Banco de la Reserva de Australia inició en 2024 la apertura de su sistema de pagos de alto valor (RITS) a proveedores de servicios de pago no bancarios autorizados.
+
+
+Varios reguladores han iniciado procesos de apertura. El argumento que los propios bancos centrales utilizan —reducir el riesgo de concentración y las interdependencias— es consistente con el argumento de que actores no bancarios pueden acceder a funciones antes exclusivas de la banca.
+
+
+Lo que \textbf{no} se puede sintetizar —al menos por ahora— es la red de seguridad: la garantía estatal de depósitos y el acceso al prestamista de última instancia siguen siendo exclusivos de la banca con licencia. Esta constituye una de las ventajas distintivas más relevantes de la licencia bancaria.
+
+
+\subsection{4.6 La síntesis evolucionada: más allá de la réplica}
+
+
+Hasta aquí, la síntesis replica. Pero la infraestructura digital —registros distribuidos programables, contratos inteligentes— habilita capacidades que van \textbf{más allá} de lo que un banco puede hacer. Tres dimensiones lo ilustran:
+
+
+\subsubsection{4.6.1 Crédito granular por tiempo: intermediación continua}
+
+
+En la infraestructura bancaria tradicional, el crédito opera en períodos discretos: días, meses, años. Las convenciones de cálculo de interés (base 360, base 365, 30/360) reflejan esta granularidad gruesa. Un banco no puede otorgar un crédito por tres horas, ni cobrar intereses proporcionalmente por 47 minutos de uso. Las limitaciones no son conceptuales sino operativas: los sistemas de liquidación procesan en ciclos diarios, los cierres contables son diarios, y la infraestructura de pagos opera en ventanas horarias.
+
+
+Los protocolos de crédito descentralizado\footnote{Del inglés \textit{DeFi} (Decentralized Finance). Finanzas descentralizadas: protocolos financieros construidos sobre registros distribuidos programables (blockchains) que ejecutan funciones de intermediación —crédito, intercambio, gestión de activos— mediante contratos inteligentes, sin intermediarios centralizados.} han demostrado que esta limitación es una restricción de la infraestructura, no de la intermediación financiera en sí. \textcite{schar2021}, en un artículo publicado en la \textit{Revista del Banco de la Reserva Federal de St. Louis}, documentó cómo los protocolos de fondos prestables (\textit{Protocols for Loanable Funds}) permiten que el interés se acumule por segundo o por bloque (aproximadamente cada 12 segundos), con tasas que se ajustan algorítmicamente en función de la utilización del fondo \parencite{gudgeon2020}. Los prestatarios pueden entrar y salir de posiciones en cualquier momento, con intereses calculados proporcionalmente a la duración exacta del uso.
+
+
+El caso extremo son los préstamos instantáneos (\textit{flash loans})\footnote{Del inglés \textit{flash loans}. Préstamos instantáneos: créditos que se otorgan y devuelven dentro de una misma transacción atómica en un registro distribuido. Si el prestatario no devuelve el monto dentro de la transacción, esta se revierte completamente, eliminando el riesgo de impago para el prestamista. No tienen análogo en la infraestructura financiera tradicional.}: créditos que existen únicamente dentro de una transacción atómica —se otorgan y se devuelven en la misma operación, con duración temporal cero. Si el prestatario no devuelve, la transacción completa se revierte como si nunca hubiera ocurrido \parencite{qin2021}. Este instrumento no tiene análogo en la banca tradicional: es crédito sin riesgo temporal, habilitado por la atomicidad de las transacciones en registros distribuidos.
+
+
+Una implicancia de lo anterior es que la intermediación financiera ya no necesita estar limitada a los ciclos temporales de la infraestructura bancaria. Un fondo de inversión tokenizado podría ofrecer financiamiento por horas a una empresa que necesita cubrir un descalce transitorio de tesorería, cobrando intereses proporcionales al tiempo exacto de uso —una forma de intermediación que podría reducir el costo temporal mínimo respecto al sobregiro bancario convencional, cuyo costo mínimo es un día. El BPI reconoce que la programabilidad "reduce la necesidad de intervenciones manuales y reconciliaciones que surgen de la separación tradicional entre mensajería, compensación y liquidación" \parencite{bis2023}. Sin embargo, \textcite{aramonte2022} advierten que el crédito descentralizado en su forma actual opera como "intermediación sin información" —basada en sobrecolateralización algorítmica en lugar del análisis crediticio tradicional—, lo que limita el acceso a prestatarios que ya poseen activos. La evolución de la síntesis bancaria requerirá combinar la granularidad temporal de la infraestructura programable con las capacidades de evaluación crediticia desarrolladas por la intermediación financiera convencional.
+
+
+\subsubsection{4.6.2 La limitación geográfica del dinero y la posibilidad de intermediación global}
+
+
+Si la primera frontera es el tiempo, la segunda es el espacio. La arquitectura monetaria tradicional es inherentemente nacional: cada banco central conduce una política monetaria optimizada para su propia economía. La "trinidad imposible" formalizada por \textcite{mundell1963} y \textcite{fleming1962} establece que un país no puede tener simultáneamente libre movilidad de capitales, tipo de cambio fijo y política monetaria independiente. Lo que la práctica ha producido son "monedas fuertes" —particularmente el dólar estadounidense— que funcionan como cuasi-monedas globales, pero con tensiones estructurales inherentes.
+
+
+\textcite{gopinath2020} encontraron evidencia empírica de que el dólar domina la facturación del comercio global muy por encima de la participación de Estados Unidos en el comercio mundial, con efectos asimétricos significativos: una apreciación del dólar predice una caída en el volumen de comercio entre países que no incluyen a Estados Unidos. La política monetaria de un banco central —diseñada para las condiciones de una geografía específica— se propaga asimétricamente a toda la economía global. \textcite{carney2019}, entonces gobernador del Banco de Inglaterra, señaló las tensiones inherentes a esta arquitectura y propuso una "moneda hegemónica sintética" —una moneda digital respaldada por una canasta de monedas de bancos centrales— como alternativa al dominio del dólar.
+
+
+\textcite{brunnermeier2019} introdujeron el concepto de "áreas monetarias digitales": zonas de influencia monetaria definidas no por fronteras nacionales sino por ecosistemas de plataformas e integración digital. Esta reconceptualización sugiere que la unidad natural de la intermediación financiera podría no ser el país sino la red.
+
+
+Para la síntesis bancaria, esto significa que la intermediación no bancaria, operando sobre infraestructura tokenizada y monedas digitales (sean CBDC o criptomonedas estables reguladas), podría ofrecer servicios financieros genuinamente transfronterizos sin las fricciones que el sistema actual impone. La Junta de Estabilidad Financiera \parencite{fsb2020} documentó que los pagos transfronterizos sufren de cuatro fricciones fundamentales —alto costo, baja velocidad, acceso limitado y transparencia insuficiente— todas derivadas de la fragmentación territorial del sistema monetario. Los proyectos de CBDC multilateral del BPI (mBridge, Dunbar) han demostrado que la tecnología puede resolver los problemas de velocidad y costo, pero no pueden fácilmente resolver las tensiones de gobernanza y soberanía \parencite{bis2022a,bis2022b}. La idea de una moneda verdaderamente global, independiente de la emisión soberana, tiene un linaje intelectual largo —desde el bancor de \textcite{keynes1943} hasta los Derechos Especiales de Giro del FMI— pero todas las implementaciones previas han chocado con la resistencia de los estados soberanos a ceder control monetario.
+
+
+La síntesis bancaria evolucionada no pretende resolver este problema geopolítico, pero sí sugiere que la intermediación financiera puede operar con una granularidad temporal y una escala geográfica que difieren de las que ofrece la arquitectura bancaria actual, la cual opera dentro de ciclos diarios, jurisdicciones nacionales y monedas soberanas.
+
+
+\subsubsection{4.6.3 El espectro centralización–descentralización}
+
+
+La evolución de la intermediación financiera puede entenderse a lo largo de un eje fundamental: el grado de centralización en la ejecución de los contratos financieros.
+
+
+En un extremo se sitúa la \textbf{banca tradicional}: una institución centralizada que concentra la captación, la colocación, la gestión de riesgos, la información y la infraestructura de pagos dentro de una sola entidad regulada. La centralización ofrece ventajas —coordinación eficiente, responsabilidad identificable, supervisión prudencial simplificada— pero también genera los costos documentados por \textcite{philippon2015}: márgenes de intermediación persistentes, innovación limitada y exclusión de segmentos no rentables, fenómenos documentados en la literatura sobre competencia bancaria.
+
+
+En el otro extremo se sitúan las \textbf{finanzas descentralizadas}: protocolos autónomos que ejecutan funciones de intermediación mediante contratos inteligentes en registros distribuidos abiertos, sin intermediarios identificables \parencite{schar2021}. La descentralización promete transparencia radical, acceso sin permiso y eliminación de intermediarios, pero introduce limitaciones propias: intermediación sin información crediticia \parencite{aramonte2022}, gobernanza difusa y vulnerabilidad a fallos técnicos.
+
+
+La síntesis bancaria ocupa —y articula— el espacio entre ambos extremos. No es ni la integración vertical de la banca ni la desintermediación radical de las finanzas descentralizadas. Es una \textbf{descentralización regulada}: múltiples actores especializados (fondos, tecnológicas financieras, plataformas) que ejecutan funciones financieras específicas, coordinados por mercados de capitales y supervisados por reguladores, operando sobre infraestructura que puede ser centralizada (IMF tradicionales), distribuida con permisos (registro unificado del BPI) o descentralizada abierta (protocolos públicos).
+
+
+Esta posición intermedia busca combinar las fortalezas de ambos enfoques: aspira a incorporar las eficiencias de la descentralización —competencia, transparencia, programabilidad— mientras busca preservar las garantías de la regulación —protección al inversionista, estabilidad sistémica, supervisión prudencial—, aunque esta combinación introduce desafíos propios, incluyendo la coordinación supervisora y la prevención del arbitraje regulatorio. La pregunta que define el futuro de la intermediación financiera no es centralización \textit{o} descentralización, sino qué combinación de ambas maximiza la eficiencia, la estabilidad y la inclusión para cada función financiera específica.
+
+
+
+\section{5. Tabla integrada: anatomía bancaria vs. síntesis}
+
+\begin{longtable}{p{2.2cm} p{3.5cm} p{3.8cm} p{5.5cm}}
+\toprule
+\textbf{Función} & \textbf{Banco} & \textbf{Síntesis} & \textbf{Descripción} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{4}{l}{\textbf{\textit{Infraestructura}}} \\
+\midrule
+Pagos minoristas & Cuentas, tarjetas & Billeteras digitales, prepago & Actores no bancarios con participación relevante en múltiples jurisdicciones \\
+Pagos alto valor & Acceso exclusivo LBTR & Apertura regulatoria (UK, UE, AU) & Barrera relevante; algunos reguladores han iniciado aperturas parciales \\
+Red de seguridad & Garantía estatal + prestamista & Sin equivalente & Ventaja distintiva central. Sin equivalente actual fuera de la banca con licencia \\
+Infraestructura digital & Sistemas bancarios existentes; ciclos diarios & Tokenización; contratos inteligentes & Infraestructura digital: programabilidad, liquidación de mayor frecuencia \\
+\midrule
+\multicolumn{4}{l}{\textbf{\textit{Capa de productos}}} \\
+\midrule
+Captación & Cuentas, depósitos, fondos propios & Fondos mutuos de terceros & Interfaz banco-fuentes de fondeo \\
+Colocación & Créditos, avales, líneas & Fondos de inversión, plataformas & Interfaz banco-deudores \\
+Información & Historial, custodia, asesoría & Finanzas abiertas & Ventaja informacional. Las finanzas abiertas buscan reducirla \\
+Derivados y seguros & Mesa de derivados; aseguradoras & Seguros embebidos\footnote{Del inglés \textit{embedded insurance}. Seguros embebidos: productos de seguro integrados directamente en la compra de otro producto o servicio financiero.} & Seguros como opciones (sección 3.4.4). La síntesis los integra en productos digitales \\
+\midrule
+\multicolumn{4}{l}{\textbf{\textit{ALM Pasivos — ↑ riesgo}}} \\
+\midrule
+Ventanilla central & FPL y FLI & Sin equivalente & Liquidez del BC a tasa conocida; exclusiva de licencia bancaria \\
+Depósitos vista & Cuentas corrientes & Cuentas remuneradas vía fondos mutuos & Fondeo de bajo costo, retirable a demanda. La síntesis puede ofrecer rentabilidad diferente al ahorrante, según condiciones de mercado \\
+Depósitos plazo & Depósitos a plazo fijo & Fondos mutuos de mercado monetario & Certeza de plazo. Los fondos replican con liquidez diaria \\
+Emisiones & Bonos y letras & Emisión directa por no bancos & Deuda de mercado para calzar activos largos \\
+Capital & Basilea III/IV & Capital de partícipes & Absorbe pérdidas. En fondos, el riesgo va al partícipe \\
+\midrule
+\multicolumn{4}{l}{\textbf{\textit{ALM Activos — ↑ riesgo}}} \\
+\midrule
+Ventanilla central & FPD & Sin equivalente & Excedentes en BC; riesgo soberano puro \\
+Emisiones soberanas & Encaje, bonos BC y gobierno & Portafolio de fondos mutuos & Mínimo riesgo. Es lo que los fondos mutuos compran \\
+Emisiones corporativas & Bonos bancarios y empresas & Fondos mutuos renta fija & Mayor rentabilidad; riesgo de crédito del emisor \\
+Créditos con colateral & Hipotecarios, automotrices & Titulización; fondos inmobiliarios & Garantía real. Titulización separa originador de fondeador \\
+Créditos sin colateral & Consumo, tarjetas, rotativas & Fondos de inversión; BNPL\footnote{Del inglés \textit{BNPL} (Buy Now, Pay Later). Modelo de crédito de consumo que permite comprar un producto y pagarlo en cuotas sin tarjeta de crédito.} & Mayor riesgo y margen. Los fondos buscan replicar la evaluación crediticia \\
+\midrule
+\multicolumn{4}{l}{\textbf{\textit{Gestión del calce}}} \\
+\midrule
+Transformación de plazos & Departamento ALM & Plazo fondo = plazo crédito & Banco transforma plazos (con riesgo asociado). Los fondos buscan calzar plazos (reduciendo descalce pero también creación de liquidez) \\
+\bottomrule
+\end{longtable}
+
+
+
+\section{6. Características estructurales de la síntesis}
+
+
+Si la síntesis bancaria es posible, ¿qué diferencias estructurales presenta respecto de la intermediación bancaria? Esta sección examina seis dimensiones.
+
+
+\subsection{6.1 Costo de intermediación y competencia}
+
+
+\textcite{philippon2015} documentó que el costo unitario de intermediación financiera en Estados Unidos se ha mantenido estable durante más de un siglo, a pesar de las revoluciones en telecomunicaciones, computación y procesamiento de datos. El costo de intermediación no ha disminuido para el usuario final. La concentración del mercado es parte de la explicación: \textcite{berger1989} encontraron evidencia empírica de que los mercados bancarios más concentrados ofrecen tasas menos favorables a los depositantes, y \textcite{claessens2004} encontraron que las barreras regulatorias de entrada —no las características intrínsecas del mercado— son un determinante central del grado de competencia bancaria.
+
+
+La síntesis bancaria podría introducir competencia estructural al reemplazar un intermediario integrado (el banco) por una cadena de actores especializados que compiten entre sí. \textcite{buchak2018} documentaron que la entrada de prestamistas no bancarios —impulsada tanto por tecnología como por regulación— ha generado una compresión medible en los costos de crédito hipotecario en Estados Unidos. La evidencia empírica disponible sugiere que, al menos en el mercado hipotecario estadounidense, la competencia no bancaria se ha asociado a menores costos y mejores condiciones para los consumidores.
+
+
+\subsection{6.2 Intensidad de capital}
+
+
+Intermediar requiere capital. Por cada unidad de crédito que otorga, un banco debe inmovilizar una fracción como capital regulatorio, proporcional a sus activos ponderados por riesgo \parencite{bcbs2010}. Ese capital tiene un costo de oportunidad y reduce el retorno sobre el patrimonio.
+
+
+En un fondo de inversión, la AGF no necesita capital proporcional a los créditos que el fondo financia, porque no asume el riesgo de crédito: este se transfiere directamente a los partícipes. El capital regulatorio de la AGF se relaciona con su operación como administradora (riesgo operacional), no con el volumen de intermediación. Esto permite una intermediación crediticia menos intensiva en capital.
+
+
+\subsection{6.3 Transparencia y alineación de intereses}
+
+
+¿Cuánto cobra un banco por intermediar? El cliente no necesariamente lo conoce con precisión. El diferencial entre la tasa de captación y la tasa de colocación está contenido en la estructura del balance, y no resulta directamente observable para quien deposita ni para quien pide prestado. En un fondo de inversión, la comisión de administración es explícita, publicada, comparable. El inversionista puede conocer cuánto paga por la gestión.
+
+
+Además, el inversionista-partícipe del fondo asume directamente el riesgo y recibe directamente el retorno. No hay un intermediario que capture un diferencial entre ambos lados de la transacción que no sea directamente visible para el inversionista. Esta estructura de alineación de intereses podría constituir una diferencia competitiva relevante, particularmente en un contexto de creciente demanda regulatoria por mayor transparencia financiera.
+
+
+\subsection{6.4 Especialización, agilidad y compartimentación del riesgo}
+
+
+Un banco opera con un balance diversificado: debe absorber hipotecas, crédito automotriz, factoraje\footnote{Del inglés \textit{factoring}. Factoraje: operación financiera mediante la cual una empresa vende sus cuentas por cobrar (facturas) a un tercero con un descuento, obteniendo liquidez inmediata.}, financiamiento inmobiliario, crédito a tecnológicas financieras —todo bajo las mismas reglas de capital. Los fondos de inversión, no sujetos a esa restricción, pueden especializarse. La especialización permite desarrollar competencias en evaluación de riesgo sectorial, operaciones de cobranza y relaciones con originadores que pueden diferir de las que desarrolla un departamento dentro de un banco.
+
+
+La lógica tiene una base formal en organización industrial. \textcite{stigler1951} argumentó que la división del trabajo —y con ella la desintegración vertical de una industria— está limitada por la extensión del mercado: cuando el mercado es pequeño, un solo actor integra todas las funciones porque no hay escala suficiente para sostener especialistas; cuando el mercado crece, las funciones migran hacia actores especializados. La intermediación financiera presenta una trayectoria consistente con esta lógica: mientras los mercados de capitales fueron pequeños y la tecnología de registro limitada, concentrar todas las funciones en un banco era una configuración eficiente. A medida que los mercados de capitales se profundizan y la tecnología de registro permite coordinar actores distribuidos, la especialización funcional se vuelve viable —y su eficiencia comparativa se convierte en una cuestión empírica relevante.
+
+
+Pero la especialización no solo podría mejorar la eficiencia operativa; también \textbf{compartimenta el riesgo sistémico}. En un banco verticalmente integrado, una pérdida en la cartera de crédito erosiona la base de capital que también respalda los depósitos, los pagos y todos los demás servicios. La corrida bancaria es, en esencia, este contagio interno: un problema en la calidad de los activos contamina la confianza en los pasivos. En la síntesis bancaria, cada función reside en una entidad jurídica separada con un balance independiente. La quiebra de un fondo de crédito privado no contagia automáticamente al fondo mutuo de mercado monetario ni a la plataforma de pagos —son vehículos distintos, con patrimonios separados y reguladores diferentes. Esta compartimentación es una consecuencia estructural de la síntesis que los reguladores han intentado replicar \textit{dentro} de la banca —mediante la separación funcional propuesta por la Comisión Vickers \parencite{vickers2011} y el Informe Liikanen \parencite{liikanen2012}— con resultados parciales. En la síntesis bancaria, la compartimentación emerge de la propia arquitectura.
+
+
+\subsection{6.5 Competencia como motor de eficiencia}
+
+
+Un banco compite con otros bancos —a menudo en mercados concentrados. En la síntesis bancaria, la competencia se multiplica y se fragmenta: las AGF compiten por captar, originadores compiten por colocar, tecnológicas financieras compiten por servir. Cada eslabón de la cadena enfrenta presión competitiva propia, y la compresión de márgenes podría acumularse a lo largo de toda la cadena. \textcite{vives2016} argumentó que la competencia y la estabilidad financiera no son necesariamente incompatibles: un marco regulatorio bien diseñado puede fomentar ambas simultáneamente. En un sistema bancario concentrado (donde pocos bancos controlan la mayoría del mercado), esta presión competitiva tiende a ser menor, con costos para los consumidores en forma de tasas de depósito más bajas y tasas de crédito más altas.
+
+
+\subsection{6.6 Inclusión financiera}
+
+
+Una dimensión particularmente relevante de la síntesis bancaria es su potencial de inclusión financiera. \textcite{suri2016}, en un estudio publicado en \textit{Science}, documentaron que una plataforma de pagos móviles no bancaria en Kenia redujo la pobreza en cientos de miles de hogares y trasladó a cientos de miles de mujeres de la agricultura al emprendimiento\footnote{Suri, T. y Jack, W. (2016). The long-run poverty and gender impacts of mobile money. \textit{Science}, 354(6317), 1288-1292. El estudio utilizó datos de panel de hogares en Kenia entre 2008 y 2014 para medir el impacto causal de la adopción de servicios de dinero móvil sobre la pobreza y el empleo femenino.}. \textcite{mckinsey2016} estimó que los servicios financieros digitales —proporcionados mayoritariamente por actores no bancarios— podrían generar un impacto macroeconómico considerable en economías emergentes y proporcionar servicios financieros a poblaciones previamente excluidas del sistema bancario.
+
+
+La explicación es estructural: la banca tradicional requiere infraestructura física (sucursales), capital regulatorio elevado y procesos operativamente intensivos que hacen económicamente costoso atender segmentos de bajo valor. Los actores no bancarios, con estructuras de costos digitales y regulación proporcional, pueden servir rentablemente a estos segmentos. La síntesis bancaria, en este sentido, no es solo una alternativa competitiva a la banca, sino que también puede constituir, para amplios segmentos de la población global, una \textbf{vía de acceso} a servicios financieros formales.
+
+
+
+\section{7. Los desafíos de la síntesis y las respuestas en curso}
+
+
+Las objeciones a la síntesis bancaria son serias y merecen análisis detallado. Esta sección las examina junto con las respuestas regulatorias y de mercado que se han desarrollado.
+
+
+\subsection{7.1 Liquidez y estabilidad en condiciones de estrés}
+
+
+En septiembre de 2008, el Reserve Primary Fund rompió el dólar. En marzo de 2020, los mercados monetarios sufrieron una carrera por efectivo\footnote{Del inglés \textit{dash for cash}. "Carrera por efectivo": episodio de marzo de 2020 en el que inversionistas institucionales liquidaron masivamente activos financieros —incluyendo fondos mutuos de mercado monetario— para obtener efectivo, provocando disrupciones en los mercados globales que requirieron intervención de bancos centrales.}. Los críticos tienen razón: los fondos que ofrecen rescate diario sobre activos no completamente líquidos pueden experimentar dinámicas similares a las corridas bancarias.
+
+
+Sin embargo, la respuesta regulatoria ha abarcado múltiples dimensiones y ha sido progresiva. La Comisión de Bolsa y Valores de Estados Unidos (SEC) reformó las reglas de los fondos mutuos de mercado monetario en 2010, 2014 y 2023, introduciendo requisitos de liquidez mínima, valoración a mercado para fondos institucionales, y mecanismos de gestión de liquidez (tasas de rescate, puertas de salida). La Unión Europea implementó el Reglamento de Fondos de Mercado Monetario (MMFR) en 2017. La FSB y la IOSCO han propuesto marcos adicionales para la gestión de liquidez en fondos abiertos \parencite{fsb2025a}. Estas reformas no eliminan el riesgo, pero lo mitigan mediante mecanismos concretos, y sugieren que la regulación está evolucionando para adaptarse a la intermediación vía fondos.
+
+
+Pero la banca tradicional tampoco es inmune. Silicon Valley Bank, Signature Bank, First Republic —los tres colapsaron en 2023. En el caso de Silicon Valley Bank, más del 90\% de los depósitos excedían el límite de la garantía estatal, lo que los hacía funcionalmente equivalentes a inversiones sin protección \parencite{jiang2023}. La corrida fue sobre depósitos \textit{no} asegurados —una dinámica comparable a la que se critica en los fondos. Estos episodios sugieren que la ventaja de la banca en materia de estabilidad es más relativa de lo que a veces se asume.
+
+
+\subsection{7.2 Coordinación regulatoria}
+
+
+Un banco, un regulador. En la síntesis bancaria, la cadena se fragmenta: la comisión de valores supervisa los fondos, el regulador de pagos supervisa las tecnológicas financieras, el banco central supervisa la infraestructura. ¿Quién ve el conjunto?
+
+
+Los reguladores están abordando activamente este desafío de coordinación. La FSB coordina la supervisión de la intermediación no bancaria a nivel global. En el ámbito nacional, varios países están avanzando hacia la \textbf{regulación por actividad} en lugar de la regulación por entidad: regular la función (crédito, captación, pagos) independientemente de quién la ejecute \parencite{arner2020}. Este enfoque, consistente con la perspectiva funcional de Merton, constituye un marco regulatorio coherente con un sistema donde la síntesis bancaria es una realidad.
+
+
+\subsection{7.3 Interconexiones sistémicas}
+
+
+Los bancos y los actores no bancarios no operan en universos paralelos. La Reserva Federal de Nueva York documentó "sinergias de conglomeración significativas" entre ambos bajo la misma estructura corporativa —canales de interdependencia que requieren supervisión integrada \parencite{nyfed2023}. El desafío es real: aunque la síntesis compartimenta el riesgo al separar funciones en entidades jurídicas independientes (como se describió en la sección 6.4), esa separación no elimina las interconexiones \textit{entre} entidades. Un fondo de crédito privado puede depender de líneas de liquidez bancarias; una plataforma de pagos puede liquidar a través de bancos corresponsales; un fondo mutuo puede invertir en instrumentos emitidos por bancos. La compartimentación reduce el contagio \textit{intra}-institucional pero no el contagio \textit{inter}-institucional.
+
+
+No obstante, este desafío no es nuevo ni exclusivo de la síntesis. Los bancos universales —que combinan banca comercial, banca de inversión y gestión de activos— generan interconexiones comparables dentro de una sola entidad. La diferencia es que en la síntesis, las interconexiones son contractuales y observables (un contrato de línea de crédito, un acuerdo de corresponsalía), mientras que en un banco integrado son internas y menos directamente observables por terceros. La supervisión de lo contractual y observable puede, en principio, ser más viable que la supervisión de interconexiones internas.
+
+
+\subsection{7.4 La convergencia banco-síntesis: ¿inevitable o evitable?}
+
+
+La experiencia de las plataformas de crédito directo es una advertencia: varias intentaron sintetizar el crédito bancario sin sintetizar el fondeo. Cuando las condiciones de mercado se endurecieron, el fondeo de mercado se contrajo y las plataformas no pudieron sostener su volumen de crédito \parencite{fprime2024}. La solución de algunas fue adquirir bancos pequeños; la de otras, obtener licencias bancarias.
+
+
+Pero esta convergencia no es universal. Los grandes gestores de crédito privado han construido operaciones de intermediación crediticia de escala sistémica \parencite{aima2025} sin necesitar licencias bancarias, fondeándose con capital institucional de largo plazo. La diferencia clave es el tipo de fondeo: quienes dependen de fondeo minorista volátil tienden a converger hacia la banca; quienes acceden a fondeo institucional estable pueden mantener la síntesis sin necesitar licencia bancaria.
+
+
+Una pregunta central es qué configuración regulatoria permite obtener los mayores beneficios potenciales de la coexistencia entre banca y síntesis (competencia, eficiencia, inclusión), gestionando al mismo tiempo sus riesgos (liquidez, interconexiones, protección del inversionista).
+
+
+
+\section{8. Conclusiones}
+
+
+\subsection{8.1 La síntesis como evolución: ¿anomalía o cambio estructural?}
+
+
+Durante seiscientos años —desde el banco de madera en la plaza florentina hasta el banco global del siglo XXI— intermediar fue sinónimo de ser banco. Esa exclusividad está cambiando. La intermediación no bancaria supera la mitad de los activos financieros globales \parencite{fsb2025b}; el crédito privado crece a un ritmo que supera al bancario \parencite{aima2025}; los fondos mutuos de mercado monetario rivalizan con los depósitos como fuente de fondeo \parencite{ici2026}. Estos datos sugieren un cambio estructural en la composición del sistema financiero.
+
+
+Los datos disponibles son consistentes con lo que la teoría anticipaba. \textcite{allen2000} documentaron una tendencia en la que los sistemas financieros tienden a evolucionar de estructuras basadas en bancos hacia estructuras basadas en mercados de capitales a medida que las economías se desarrollan. \textcite{merton1995} propuso que la innovación financiera redistribuiría las funciones entre instituciones de formas no previstas. \textcite{schumpeter1942} describió el proceso general: la destrucción creativa tiende a reemplazar formas institucionales existentes por alternativas que, en su análisis, pueden ser más eficientes, preservando las funciones económicas subyacentes.
+
+
+Este artículo propone que la síntesis bancaria puede interpretarse como una manifestación contemporánea de esa dinámica: la migración de la intermediación financiera desde instituciones verticalmente integradas (bancos) hacia ecosistemas de actores especializados coordinados por tecnología, regulación y mercados de capitales.
+
+
+\subsection{8.2 Un cambio de perspectiva: de la vigilancia al diseño}
+
+
+Vigilar no es lo mismo que diseñar. Los reguladores han enmarcado el crecimiento de la intermediación no bancaria como un fenómeno que requiere \textbf{vigilancia}: cuánto riesgo sistémico genera, cuánto escapa al perímetro regulatorio. Esa perspectiva es necesaria, y la síntesis bancaria propone que puede complementarse con una orientada al \textbf{diseño}: ¿cómo debe organizarse un sistema financiero que maximice la competencia, la inclusión y la eficiencia, gestionando los riesgos inherentes a cualquier forma de intermediación?
+
+
+La respuesta pasa por tres principios que ya están siendo adoptados globalmente: regulación por actividad (regular la función, no la entidad), apertura de infraestructuras (acceso a sistemas de pago y datos financieros para actores regulados no bancarios) y proporcionalidad regulatoria (requisitos calibrados al riesgo real de cada actividad, no al riesgo histórico de la banca).
+
+
+\subsection{8.3 Implicancias para la industria y los consumidores}
+
+
+Para la industria bancaria, la implicancia central es que la exclusividad histórica de la intermediación financiera enfrenta una presión competitiva creciente. No por un ataque frontal, sino por una construcción paralela que ofrece alternativas reguladas a funciones bancarias específicas. Los bancos que respondan con innovación —como muchos lo están haciendo— pueden coexistir y competir. La presión competitiva puede, bajo un marco regulatorio adecuado, beneficiar al sistema en su conjunto.
+
+
+Para los consumidores, la implicancia es más directa: potencialmente más opciones, menores costos de intermediación y mayor transparencia —aunque con riesgos propios como la ausencia de garantía estatal y la complejidad de la cadena regulatoria— y, para amplios segmentos de la población global, vías adicionales de acceso a servicios financieros formales. Las cuatro dimensiones irreducibles de las finanzas —economía, contratos, tiempo y riesgo— no han cambiado. Es improbable que cambien. Lo que cambia es quién las ejecuta, a qué costo, y para quién.
+
+
+\subsection{8.4 El nombre}
+
+
+"Banco" codifica un mueble. Un tablón de madera en una plaza italiana del siglo XIV. El nombre sobrevivió seiscientos años porque la función que designaba no cambió: captar, prestar, gestionar el calce, procesar pagos. Del cambista florentino al banco global del siglo XXI, lo que cambió fue la escala, la tecnología, la regulación. No la esencia.
+
+
+Pero ahora la función se preserva y la forma muta. Fondos mutuos que captan, fondos de inversión que prestan, plataformas que procesan pagos, mercados de capitales que gestionan el calce. Cada función ejecutada por un actor distinto, regulado, especializado. El compuesto replica las funciones principales de un banco —aunque con diferencias estructurales— pero no hay banco.
+
+
+¿Cómo llamamos a eso?
+
+
+La pregunta no es semántica. Los nombres son marcos conceptuales. Llamar "banco" a esta nueva estructura es impreciso —no tiene licencia bancaria, no crea dinero, no accede al prestamista de última instancia. Llamarla "intermediación no bancaria" la define por lo que \textit{no} es. Llamarla "tecnología financiera" la reduce a su herramienta. Ningún nombre actual captura lo que está emergiendo: una forma de organizar la intermediación financiera que preserva las funciones esenciales —gestionar el tiempo y el riesgo— pero las distribuye en una red de actores especializados en lugar de concentrarlas en una institución integrada.
+
+
+Quizás la pista está en lo que este artículo ha identificado como la variable relevante: el registro. Si todo activo financiero es, en última instancia, un registro portador de valor, entonces la historia de las finanzas puede leerse no solo como la historia de las instituciones que intermedian, sino también como la historia de la tecnología que registra. El banco fue, desde su origen, una tecnología de registro —el libro de cuentas del cambista sobre el mueble de madera. Lo que muta no es la función ni la necesidad de registrar, sino el soporte del registro: del papel al código, de la confianza institucional a la verificabilidad criptográfica. Si el nombre "banco" codifica un mueble, lo que viene quizás debería codificar una dimensión distinta: no dónde se sienta el intermediario, sino cómo se registra el valor.
+
+
+Si la banca nació de un mueble en una plaza, la síntesis bancaria nace de protocolos en una red. Del banco roto en Florencia al código que ejecuta contratos en segundos. Las funciones centrales persisten, aunque con diferencias estructurales relevantes. El nombre, todavía no existe.
+
+
+\subsection{8.5 Preguntas abiertas}
+
+
+Todo marco analítico abre nuevas preguntas. Esta no es la excepción.
+
+
+Una pregunta central es monetaria. ¿Qué ocurre con la creación de dinero, el multiplicador monetario y la transmisión de la política monetaria cuando la intermediación crediticia migra de instituciones que crean dinero (bancos) a instituciones que no lo hacen (fondos)? Si "los préstamos crean depósitos" es exclusivo de la banca, ¿qué mecanismo lo reemplaza —o lo complementa— en un sistema donde la intermediación está distribuida?
+
+
+Esta pregunta tiene un corolario institucional que la digitalización hace urgente: si la restricción que justificó históricamente la intermediación comercial fue, en parte, una restricción de capacidad —ningún emisor monetario podía mantener los registros portadores de valor de millones de cuentas individuales—, y si la tecnología de registro ya permite hacerlo, ¿puede el banco central servir directamente a más participantes de la economía? La literatura sobre monedas digitales de banco central explora esta posibilidad \parencite{brunnermeier2019}, pero la tensión entre la viabilidad tecnológica y las implicancias institucionales permanece sin resolver: intermediar directamente fuerza al banco central a tomar decisiones de asignación de crédito que son inherentemente políticas, y crea un punto único de fallo para todo el sistema financiero.
+
+
+Hay una pregunta empírica: ¿cómo se manifiesta la síntesis bancaria en una economía específica? El marco conceptual es global, pero la implementación es necesariamente local —depende de la regulación, la estructura de mercado, la penetración tecnológica y la conducta del consumidor de cada jurisdicción. Un caso de estudio nacional puede revelar dinámicas que la perspectiva global abstrae.
+
+
+Hay una pregunta regulatoria: ¿puede la regulación por actividad —regular la función independientemente de quién la ejecute— reemplazar completamente a la regulación por entidad? ¿O existen funciones financieras donde la forma institucional importa tanto como la función misma?
+
+
+Y hay una pregunta sobre la remuneración del valor. Si la función primaria del banco central es proteger la estabilidad del valor de la moneda y asegurar la cadena de pagos, y si la tasa de política monetaria refleja el precio del tiempo en la economía, cabe preguntarse si esa tasa debería remunerar directamente los saldos en el sistema de liquidación bruta en tiempo real, y en qué medida debería trasladarse a los depositantes. La evidencia empírica muestra que los bancos trasladan menos de la mitad de los cambios en la tasa de política a sus depositantes —capturando el diferencial como "franquicia de depósitos" \parencite{drechsler2017}—, lo que, según algunos análisis, debilita la transmisión monetaria y puede interpretarse como una transferencia implícita de valor de los ahorrantes hacia los intermediarios.
+
+
+Si el diferencial de depósitos es, en parte, una renta derivada de las limitaciones históricas de la tecnología de registro —el banco central no podía mantener los registros portadores de valor de millones de cuentas individuales, y delegó esa función a intermediarios que cobraron por ejecutarla—, entonces la digitalización no solo habilita la síntesis bancaria sino que invita a reexaminar la justificación económica del diferencial mismo. El caso de TNB USA Inc. contra la Reserva Federal de Nueva York —donde un intermediario intentó crear un vehículo de traspaso directo de la tasa de política a los depositantes y la Fed se lo impidió activamente— ilustra que esta pregunta no es abstracta: es una tensión institucional viva.
+
+
+Estas preguntas extienden el análisis de la síntesis bancaria hacia dimensiones que este artículo identifica pero no resuelve.
+
+
+
+\printbibliography
+
+\end{document}
