@@ -16,6 +16,7 @@ Se argumenta que las tres funciones esenciales de un banco — transformación d
 **Autor:** [Miguel Cornejo Vargas](https://orcid.org/0009-0001-1539-4458)
 **Fecha:** Febrero 2026
 **Licencia:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+**DOI:** [10.5281/zenodo.18736049](https://doi.org/10.5281/zenodo.18736049)
 
 ---
 
@@ -37,3 +38,4 @@ It argues that the three essential functions of a bank — liquidity transformat
 **Author:** [Miguel Cornejo Vargas](https://orcid.org/0009-0001-1539-4458)
 **Date:** February 2026
 **License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+**DOI:** [10.5281/zenodo.18736049](https://doi.org/10.5281/zenodo.18736049)
