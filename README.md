@@ -17,6 +17,7 @@ Se argumenta que las tres funciones esenciales de un banco — transformación d
 **Fecha:** Febrero 2026
 **Licencia:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 **DOI:** [10.5281/zenodo.18736049](https://doi.org/10.5281/zenodo.18736049)
+**Medium:** [Leer en Medium](https://medium.com/@mcornejocl/the-banking-synthesis-anatomy-of-non-bank-replication-of-financial-intermediation-structure-8a2913de6f4b)
 
 ---
 
@@ -39,3 +40,4 @@ It argues that the three essential functions of a bank — liquidity transformat
 **Date:** February 2026
 **License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 **DOI:** [10.5281/zenodo.18736049](https://doi.org/10.5281/zenodo.18736049)
+**Medium:** [Read on Medium](https://medium.com/@mcornejocl/the-banking-synthesis-anatomy-of-non-bank-replication-of-financial-intermediation-structure-8a2913de6f4b)
