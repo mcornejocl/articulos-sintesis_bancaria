@@ -1,0 +1,35 @@
+{
+  "title": "La síntesis bancaria: anatomía de la replicación no bancaria de la estructura de intermediación financiera / The banking synthesis: anatomy of non-bank replication of financial intermediation structure",
+  "description": "Este artículo propone el concepto de síntesis bancaria: una estructura funcionalmente equivalente a un banco construida mediante la combinación de vehículos de inversión regulados que en conjunto replican la intermediación financiera sin licencia bancaria.",
+  "creators": [
+    {
+      "name": "Cornejo Vargas, Miguel",
+      "orcid": "0009-0001-1539-4458"
+    }
+  ],
+  "upload_type": "publication",
+  "publication_type": "article",
+  "access_right": "open",
+  "license": "CC-BY-4.0",
+  "language": "spa",
+  "keywords": [
+    "banking synthesis",
+    "financial intermediation",
+    "non-bank finance",
+    "shadow banking",
+    "fintech",
+    "mutual funds",
+    "delegated monitoring",
+    "liquidity transformation",
+    "síntesis bancaria",
+    "intermediación financiera"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://mcornejocl.github.io/articulos-sintesis_bancaria/",
+      "relation": "isDocumentedBy",
+      "scheme": "url"
+    }
+  ],
+  "publication_date": "2026-02-22"
+}
