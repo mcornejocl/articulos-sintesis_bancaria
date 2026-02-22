@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Si utilizas este artículo, por favor cítalo como se indica a continuación."
+title: "La síntesis bancaria: anatomía de la replicación no bancaria de la estructura de intermediación financiera"
+authors:
+  - family-names: Cornejo Vargas
+    given-names: Miguel
+    orcid: "https://orcid.org/0009-0001-1539-4458"
+type: article
+date-released: "2026-02-22"
+keywords:
+  - síntesis bancaria
+  - intermediación financiera no bancaria
+  - perspectiva funcional
+  - calce activo-pasivo
+  - competencia financiera
+  - regulación habilitadora
+  - inclusión financiera
+license: CC-BY-4.0
+repository-code: "https://github.com/mcornejocl/articulos-sintesis_bancaria"

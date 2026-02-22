@@ -13,8 +13,9 @@ Se argumenta que las tres funciones esenciales de un banco — transformación d
 | LaTeX | [es/articulo.tex](es/articulo.tex) | [en/article.tex](en/article.tex) |
 | PDF | [es/articulo.pdf](es/articulo.pdf) | [en/article.pdf](en/article.pdf) |
 
-**Autor:** Miguel Cornejo Vargas
+**Autor:** [Miguel Cornejo Vargas](https://orcid.org/0009-0001-1539-4458)
 **Fecha:** Febrero 2026
+**Licencia:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 ---
 
@@ -33,5 +34,6 @@ It argues that the three essential functions of a bank — liquidity transformat
 | LaTeX | [es/articulo.tex](es/articulo.tex) | [en/article.tex](en/article.tex) |
 | PDF | [es/articulo.pdf](es/articulo.pdf) | [en/article.pdf](en/article.pdf) |
 
-**Author:** Miguel Cornejo Vargas
+**Author:** [Miguel Cornejo Vargas](https://orcid.org/0009-0001-1539-4458)
 **Date:** February 2026
+**License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
