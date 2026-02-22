@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>La síntesis bancaria — Miguel Cornejo Vargas</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Libertinus Serif', 'Georgia', 'Times New Roman', serif;
+            color: #1a1a1a;
+            background: #fafafa;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        header p.author {
+            font-size: 1.1rem;
+            color: #555;
+            margin-top: 0.5rem;
+        }
+
+        header p.date {
+            font-size: 0.95rem;
+            color: #888;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            font-weight: bold;
+            line-height: 1.3;
+            margin-bottom: 0.3rem;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .abstract {
+            font-size: 0.95rem;
+            color: #333;
+            text-align: justify;
+            margin-bottom: 1.5rem;
+        }
+
+        .downloads {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+
+        .downloads a {
+            display: block;
+            padding: 0.7rem 1rem;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 0.9rem;
+            transition: border-color 0.2s;
+        }
+
+        .downloads a:hover {
+            border-color: #666;
+        }
+
+        .downloads a .format {
+            font-weight: bold;
+            display: block;
+        }
+
+        .downloads a .desc {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 3rem 0;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #999;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+
+        @media (max-width: 500px) {
+            .downloads { grid-template-columns: 1fr; }
+            h1 { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>La síntesis bancaria</h1>
+            <p class="author">Miguel Cornejo Vargas</p>
+            <p class="date">Febrero 2026</p>
+        </header>
+
+        <!-- Español -->
+        <section>
+            <h2>Español</h2>
+            <p class="abstract">
+                Este artículo propone el concepto de <strong>síntesis bancaria</strong>: una estructura funcionalmente equivalente a un banco construida mediante la combinación de vehículos de inversión regulados — fondos mutuos para la captación, fondos de inversión para el crédito, fintechs para la infraestructura transaccional — que en conjunto replican la intermediación financiera sin licencia bancaria.
+            </p>
+            <div class="downloads">
+                <a href="https://github.com/mcornejocl/articulos-sintesis_bancaria/raw/main/es/articulo.pdf">
+                    <span class="format">PDF</span>
+                    <span class="desc">Documento compilado</span>
+                </a>
+                <a href="https://github.com/mcornejocl/articulos-sintesis_bancaria/blob/main/es/articulo.tex">
+                    <span class="format">LaTeX</span>
+                    <span class="desc">Fuente tipográfica</span>
+                </a>
+                <a href="https://github.com/mcornejocl/articulos-sintesis_bancaria/blob/main/es/articulo.md">
+                    <span class="format">Markdown</span>
+                    <span class="desc">Fuente legible</span>
+                </a>
+                <a href="https://github.com/mcornejocl/articulos-sintesis_bancaria/blob/main/es/referencias.bib">
+                    <span class="format">BibTeX</span>
+                    <span class="desc">Bibliografía</span>
+                </a>
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- English -->
+        <section>
+            <h2>English</h2>
+            <p class="abstract">
+                This article proposes the concept of the <strong>banking synthesis</strong>: a structure functionally equivalent to a bank built through the combination of regulated investment vehicles — mutual funds for deposit-taking, investment funds for lending, fintechs for transactional infrastructure — that together replicate financial intermediation without a banking license.
+            </p>
+            <div class="downloads">
+                <a href="https://github.com/mcornejocl/articulos-sintesis_bancaria/raw/main/en/article.pdf">
+                    <span class="format">PDF</span>
+                    <span class="desc">Compiled document</span>
+                </a>
+                <a href="https://github.com/mcornejocl/articulos-sintesis_bancaria/blob/main/en/article.tex">
+                    <span class="format">LaTeX</span>
+                    <span class="desc">Typeset source</span>
+                </a>
+                <a href="https://github.com/mcornejocl/articulos-sintesis_bancaria/blob/main/en/article.md">
+                    <span class="format">Markdown</span>
+                    <span class="desc">Readable source</span>
+                </a>
+                <a href="https://github.com/mcornejocl/articulos-sintesis_bancaria/blob/main/en/references.bib">
+                    <span class="format">BibTeX</span>
+                    <span class="desc">Bibliography</span>
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <p>Miguel Cornejo Vargas &middot; 2026</p>
+        </footer>
+    </div>
+</body>
+</html>
